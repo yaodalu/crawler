@@ -1,0 +1,2 @@
+#爬取百度百科词条
+#使用requests,bs4+html

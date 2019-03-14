@@ -1,0 +1,2252 @@
+﻿<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="referrer" content="always" />
+<meta name="description" content="网络爬虫（又被称为网页蜘蛛，网络机器人，在FOAF社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。...">
+<title>网络爬虫_百度百科</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu.svg">
+
+<meta name="keywords" content="网络爬虫 爬虫 网页蜘蛛 爬虫程序 蜘蛛程序 搜索引擎蜘蛛 蜘蛛 网络蜘蛛 网络爬虫产生背景 网络爬虫面临的问题 网络爬虫分类 网络爬虫抓取目标分类 网络爬虫网页搜索策略 网络爬虫网页分析算法 网络爬虫补充">
+<meta name="image" content="https://bkssl.bdimg.com/cms/static/baike.png">
+<script type="text/javascript">
+  // 配置 PD 监控。
+  window.alogObjectConfig = {
+    product: '103',
+    page: '103_1',
+    speed: {
+      sample: '0.008'
+    },
+    monkey: {
+      sample: '1',
+      hid: '1533'
+    },
+    exception: { 
+      sample: '0.004'
+    },
+    feature: {
+      sample: '0.004'
+    },
+    csp: {
+      sample: '0.008',
+      'default-src': [
+        {match: '*.baidu.com,*.bdimg.com,localhost', target: 'Accept'},
+        {match: '*', target: 'Accept,Warn'}
+      ]
+    }
+  };
+
+  void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+  void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+<meta name="csrf-token" content="">
+<meta itemprop="dateUpdate" content="2018-07-19 20:34:13" />
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_a152d97.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-common/pkg/wiki-common-base_d6885f2.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-common/widget/component/userbar-n/userbar-n_78dab81.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-common/widget/lib/larkplayer/larkplayer_981c735.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-common/widget/lib/webuploader/webuploader_08d9db4.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_16ec5e6.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/announcement/announcement_cba33f4.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/label/label_ca156c6.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/newSideShare/sideShare_9c411cd.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_98e3702.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_ac86a59.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_3b0d7a5.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/sideAuth/sideAuth_c13d91a.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons-n/toolButtons-n_8b4919b.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons-n/userInfo-n_7e90184.css"/><link rel="stylesheet" type="text/css" href="https://bkssl.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader-n_f9a6e5b.css"/>    
+</head>
+
+<script type="text/javascript">
+    alog('speed.set', 'ht', +new Date);
+</script>
+<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?55b574651fcae74b0a9f1cf9c8d7c93a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper pc-header-new">
+<div class="topbar cmn-clearfix">
+<ul class="wgt-userbar wgt-userbar-n" id="j-wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="separator"></div>
+<div class="wiki-common-headTabBar">
+<a href="https://www.baidu.com/" nslog="normal" nslog-type="10600112" data-href="https://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a>
+<a href="http://news.baidu.com/" nslog="normal" nslog-type="10600112" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a>
+<a href="https://tieba.baidu.com/" nslog="normal" nslog-type="10600112" data-href="https://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a>
+<a href="https://zhidao.baidu.com/" nslog="normal" nslog-type="10600112" data-href="https://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a>
+<a href="http://music.baidu.com/" nslog="normal" nslog-type="10600112" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30&fr=bks0000&key=">音乐</a>
+<a href="http://image.baidu.com/" nslog="normal" nslog-type="10600112" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a>
+<a href="http://v.baidu.com/" nslog="normal" nslog-type="10600112" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a>
+<a href="http://map.baidu.com/" nslog="normal" nslog-type="10600112" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a>
+<a href="https://wenku.baidu.com/" nslog="normal" nslog-type="10600112" data-href="https://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+<b class="baike">百科</b>
+</div>
+</div>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-new wgt-searchbar-main cmn-clearfix wgt-searchbar-large">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" nslog="normal" nslog-type="10080011" name="word" type="text" autocomplete="off" autocorrect="off" value="网络爬虫" /><button id="search" nslog="normal" nslog-type="10080008" type="button">进入词条</button><button id="searchLemma" nslog="normal" nslog-type="10080009" type="button">全站搜索</button><a class="help" href="/help" nslog="normal" nslog-type="10080010" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div class="sug"></div>
+<li class="extra">
+<span id="clear" style="margin-right:8px;">清除历史记录</span><span id="close" nslog="normal" nslog-type="10080012">关闭</span>
+</li>
+</ul>
+</div></div>
+</div>
+<div class="declare-wrap" id="J-declare-wrap">
+<div class="declare" id="J-declare">声明：百科词条人人可编辑，词条创建和修改均免费，绝不存在官方及代理商付费代编，请勿上当受骗。<a class="declare-details" target="_blank" href="/common/declaration">详情>></a>
+<div class="close-btn" id="J-declare-close">
+<em class="cmn-icon cmn-icons cmn-icons_close"></em>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/vbaike/" target="_blank">百科冷知识</a></div>
+<div><a href="/vbaike#gallary" target="_blank">图解百科</a></div>
+</dd>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/art" target="_blank">艺术</a></div>
+<div><a href="/science" target="_blank">科学</a></div>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+</dd>
+</dl>
+<dl class="second-know ">
+<dt><a>秒懂百科</a></dt>
+<dd><div><a href="https://child.baidu.com/" target="_blank">秒懂少儿APP</a></div>
+<div><a href="/item/秒懂星课堂" target="_blank">秒懂星课堂</a></div>
+<div><a href="/item/秒懂大师说" target="_blank">秒懂大师说</a></div>
+<div><a href="/item/秒懂看瓦特" target="_blank">秒懂看瓦特</a></div>
+<div><a href="/item/秒懂五千年" target="_blank">秒懂五千年</a></div>
+<div><a href="/item/秒懂全视界" target="_blank">秒懂全视界</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd><div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/feiyi?fr=dhlfeiyi" target="_blank">非遗百科</a></div>
+<div><a href="https://shushuo.baidu.com/" target="_blank">百度数说</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/wikicategory/view?categoryName=恐龙大全" target="_blank">恐龙百科</a></div>
+<div><a href="/wikicategory/view?categoryName=多肉植物" target="_blank">多肉百科</a></div>
+</dd>
+</dl>
+<dl class="user ">
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation ">
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+<div class="J-wgt-seconds-know-container">
+<div id="lemmaWgt-secondsKnow" class="lemmaWgt-secondsKnow-pageBg lemmaWgt-secondsKnow-isScience-pageBg">
+<div class="layout">
+<ul class="lemmaWgt-secondsKnow-gallery">
+<li class="lemmaWgt-secondsKnow-gallery-li" data-mediaId="mda-O9YuwkNvb4QWwVgf" data-secondId="413260">
+<a href="javascript:;" nslog-type="10002502">
+<img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/whfpf%3D280%2C150%2C0/sign=deccf8c3bd003af34def8f205317f464/a8014c086e061d95e2642ff270f40ad163d9cade.jpg" />
+<span class="video-shadow"></span>
+<span class="video-play"><em class="cmn-icon cmn-icons cmn-icons_videoPlayer-play"></em></span>
+<span class="video-title" title="科普中国·科学百科：蜘蛛">
+<span class="video-title-content">科普中国·科学百科：蜘蛛</span>
+<span class="video-title-vv"><em class="wiki-lemma-icons wiki-lemma-icons_eye"></em></span>
+</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="bgMask"></div>
+</div>
+<div class="after-science-page-background" style="position:relative;margin-top:-260px;"></div>
+</div>
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="personal-content">
+</div>
+<div class="main-content">
+<a class="posterFlag expert-icon " href="javascript:;" title="权威专家认证词条"></a>
+<div class="top-tool">
+<a class="add-sub-icon top-tool-icon" href="javascript:;" title="添加义项" nslog-type="50000101">
+<em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_add-subLemma-solid"></em>
+</a>
+<a href="/divideload/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB" title="拆分词条" target="_blank" class="split-icon top-tool-icon" style="display:none;" nslog-type="50000104">
+<em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lemma-split"></em>
+</a>
+<div class="top-collect top-tool-icon" nslog="area" nslog-type="50000102">
+<em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_star-solid"></em>
+<span class="collect-text">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" id="j-top-vote" class="top-vote top-tool-icon" nslog-type="10060801">
+<em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_zan-solid"></em>
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a><div class="bksharebuttonbox top-share">
+<a class="top-share-icon top-tool-icon" nslog-type="9067">
+<em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_share"></em>
+<span class="share-count" id="j-topShareCount">0</span>
+</a>
+<div class="new-top-share" id="top-share">
+<ul class="top-share-list">
+<li class="top-share-item">
+<a class="share-link bds_qzone"  href="javascript:void(0);" nslog-type="10060501">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qzone"></em>
+</a>
+</li>
+<li class="top-share-item">
+<a class="share-link bds_tsina" href="javascript:void(0);" nslog-type="10060701">
+<em class="cmn-icon cmn-icons cmn-icons_logo-sina-weibo"></em>
+</a>
+</li>
+<li class="top-share-item">
+<a class="bds_wechat"  href="javascript:void(0);" nslog-type="10060401">
+<em class="cmn-icon cmn-icons cmn-icons_logo-wechat"></em>
+</a>
+</li>
+<li class="top-share-item">
+<a class="share-link bds_tqq"  href="javascript:void(0);" nslog-type="10060601">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qq"></em>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1 >网络爬虫</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" nslog-type="10003105" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><div class="authorityListPrompt">
+<div class="main-content-zj">
+本词条由<a href="https://baike.baidu.com/science" target="_blank" class="nslog:7175">“科普中国”科学百科词条编写与应用工作项目</a>
+审核
+。</div>
+</div>
+<div class="promotion-declaration">
+</div><div class="lemma-summary" label-module="lemmaSummary">
+<div class="para" label-module="para">网络爬虫（又被称为网页<a target=_blank href="/item/%E8%9C%98%E8%9B%9B/8135707" data-lemmaid="8135707">蜘蛛</a>，网络机器人，在<a target=_blank href="/item/FOAF">FOAF</a>社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取<a target=_blank href="/item/%E4%B8%87%E7%BB%B4%E7%BD%91/215515" data-lemmaid="215515">万维网</a>信息的程序或者脚本。另外一些不常使用的名字还有<a target=_blank href="/item/%E8%9A%82%E8%9A%81/9770178" data-lemmaid="9770178">蚂蚁</a>、自动索引、模拟程序或者<a target=_blank href="/item/%E8%A0%95%E8%99%AB/4454380" data-lemmaid="4454380">蠕虫</a>。</div>
+</div>
+<div class="configModuleBanner">
+</div><div class="basic-info cmn-clearfix">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">中文名</dt>
+<dd class="basicInfo-item value">
+网络爬虫
+</dd>
+<dt class="basicInfo-item name">外文名</dt>
+<dd class="basicInfo-item value">
+web crawler
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">别&nbsp;&nbsp;&nbsp;&nbsp;称</dt>
+<dd class="basicInfo-item value">
+网络蜘蛛
+</dd>
+<dt class="basicInfo-item name">目&nbsp;&nbsp;&nbsp;&nbsp;的</dt>
+<dd class="basicInfo-item value">
+按要求获取<a target=_blank href="/item/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a>信息
+</dd>
+</dl></div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-3">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">产生背景</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">面临的问题</a></span>
+</li>
+<li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">分类</a></span>
+</li>
+<li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">抓取目标分类</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">5</span>
+<span class="text"><a href="#5">网页搜索策略</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_1">广度优先搜索</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_2">最佳优先搜索</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_3">深度优先搜索</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">6</span>
+<span class="text"><a href="#6">网页分析算法</a></span>
+</li>
+<li class="level1">
+<span class="index">7</span>
+<span class="text"><a href="#7">补充</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub284853_1" class="lemma-anchor " ></a>
+<a name="产生背景" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>产生背景</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">随着<a target=_blank href="/item/%E7%BD%91%E7%BB%9C">网络</a>的迅速发展，<a target=_blank href="/item/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a>成为大量信息的载体，如何有效地提取并利用这些信息成为一个巨大的挑战。<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>(Search Engine)，例如传统的<a target=_blank href="/item/%E9%80%9A%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">通用搜索引擎</a>AltaVista，Yahoo!和Google等，作为一个辅助人们检索信息的工具成为用户访问万维网的入口和指南。但是，这些通用性搜索引擎也存在着一定的局限性，如：</div>
+<div class="para" label-module="para">(1)不同领域、不同背景的用户往往具有不同的检索目的和需求，通用搜索引擎所返回的结果包含大量用户不关心的网页。</div>
+<div class="para" label-module="para">(2)通用搜索引擎的目标是尽可能大的网络覆盖率，有限的搜索引擎服务器资源与无限的<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE">网络数据</a>资源之间的矛盾将进一步加深。</div>
+<div class="para" label-module="para">(3)<a target=_blank href="/item/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a>数据形式的丰富和<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF">网络技术</a>的不断发展，图片、数据库、音频、视频多媒体等不同数据大量出现，<a target=_blank href="/item/%E9%80%9A%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">通用搜索引擎</a>往往对这些信息含量密集且具有一定结构的数据无能为力，不能很好地发现和获取。</div>
+<div class="para" label-module="para">(4)通用搜索引擎大多提供基于<a target=_blank href="/item/%E5%85%B3%E9%94%AE%E5%AD%97">关键字</a>的检索，难以支持根据语义信息提出的查询。<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/0/d833c895d143ad4bef92dd7b82025aafa50f06c8?fr=lemma&ct=single" target="_blank"
+		title="网络爬虫" style="width:220px;height:183px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=9907679c7f3e6709ba0042fd0bc69fb8/d833c895d143ad4bef92dd7b82025aafa50f06c8.jpg"  alt="网络爬虫" style="width:220px;height:183px;"/>
+</a>
+<span class="description">
+网络爬虫
+</span>
+</div></div>
+<div class="para" label-module="para">为了解决上述问题，定向抓取相关网页资源的聚焦爬虫应运而生。聚焦爬虫是一个自动下载网页的程序，它根据既定的抓取目标，有选择的访问<a target=_blank href="/item/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a>上的网页与相关的链接，获取所需要的信息。与通用爬虫(general purpose web crawler)不同，聚焦爬虫并不追求大的覆盖，而将目标定为抓取与某一特定主题内容相关的网页，为面向主题的用户查询准备数据资源。</div>
+<div class="para" label-module="para">1 聚焦爬虫工作原理以及关键技术概述</div>
+<div class="para" label-module="para">网络爬虫是一个自动提取网页的程序，它为<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>从万维网上下载网页，是搜索引擎的重要组成。传统爬虫从一个或若干初始网页的URL开始，获得初始网页上的URL，在抓取网页的过程中，不断从当前页面上抽取新的URL放入队列,直到满足系统的一定停止条件。聚焦爬虫的工作流程较为复杂，需要根据一定的网页分析算法过滤与主题无关的链接，保留有用的链接并将其放入等待抓取的URL队列。然后，它将根据一定的搜索策略从队列中选择下一步要抓取的网页URL，并重复上述过程，直到达到系统的某一条件时停止。另外，所有被爬虫抓取的网页将会被系统存贮，进行一定的分析、过滤，并建立索引，以便之后的查询和检索；对于聚焦爬虫来说，这一过程所得到的分析结果还可能对以后的抓取过程给出反馈和指导。<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/0/500fd9f9d72a605987497aa12834349b033bba34?fr=lemma&ct=single" target="_blank"
+		title="" style="width:220px;height:120px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=ee6cc08d1d950a7b713549c63ad0625c/500fd9f9d72a605987497aa12834349b033bba34.jpg"  alt="" style="width:220px;height:120px;"/>
+</a>
+</div></div>
+<div class="para" label-module="para">相对于通用网络爬虫，聚焦爬虫还需要解决三个主要问题：</div>
+<div class="para" label-module="para">(1) 对抓取目标的描述或定义；</div>
+<div class="para" label-module="para">(2) 对网页或数据的分析与过滤；</div>
+<div class="para" label-module="para">(3) 对URL的<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E7%AD%96%E7%95%A5">搜索策略</a>。</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub284853_2" class="lemma-anchor " ></a>
+<a name="面临的问题" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>面临的问题</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">截止到 2007 年底，Internet 上网页数量超出 160 亿个，研究表明接近 30%的页面是重复的；动态页面的存在：客户端、服务器端脚本语言的应用使得指向相同 Web 信息的 URL 数量呈指数级增长。 上述特征使得网络爬虫面临一定的困难，主要体现在 Web 信息的巨大容量使得爬虫在给定时间内只能下载少量网页。 Lawrence 和 Giles 的研究表明没有哪个搜索引擎能够索引超出 16%的Internet 上 Web 页面，即使能够提取全部页面，也没有足够的空间来存储<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">为提高爬行效率，爬虫需要在单位时间内尽可能多的获取高质量页面，是它面临的难题之一。 当前有五种表示页面质量高低的方式[1]：Similarity（页面与爬行主题之间的相似度）、Backlink（页面在 Web 图中的入度大小）、PageRank（指向它的所有页面平均权值之和）、Forwardlink（页面在 Web 图中的出度大小）、Location（页面的信息位置）；Parallel（并行性问题）[3]。 为了提高爬行速度，网络通常会采取并行爬行的工作方式，随之引入了新的问题：重复性（并行运行的爬虫或爬行线程同时运行时增加了重复页面）、质量问题（并行运行时，每个爬虫或爬行线程只能获取部分页面，导致页面质量下降）、通信带宽代价（并行运行时，各个爬虫或爬行线程之间不可避免要进行一些通信）。 并行运行时，网络爬虫通常采用三种方式：独立方式（各个爬虫独立爬行页面，互不通信）、动态分配方式（由一个中央协调器动态协调分配 URL 给各个爬虫）、静态分配方式（URL 事先划分给各个爬虫）<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub284853_3" class="lemma-anchor " ></a>
+<a name="分类" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>分类</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="3" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">网络爬虫按照系统结构和实现技术，大致可以分为以下几种类型：通用网络爬虫（General Purpose Web Crawler）、聚焦网络爬虫（Focused Web Crawler）、增量式网络爬虫（Incremental Web Crawler）、深层网络爬虫（Deep Web Crawler）。 实际的网络爬虫系统通常是几种爬虫技术相结合实现的<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para"><b>通用网络爬虫</b></div>
+<div class="para" label-module="para">通用网络爬虫又称全网爬虫（Scalable Web Crawler），爬行对象从一些种子 URL 扩充到整个 Web，主要为门户站点搜索引擎和大型 Web 服务提供商采集数据。 由于商业原因，它们的技术细节很少公布出来。 这类网络爬虫的爬行范围和数量巨大，对于爬行速度和存储空间要求较高，对于爬行页面的顺序要求相对较低，同时由于待刷新的页面太多，通常采用并行工作方式，但需要较长时间才能刷新一次页面。 虽然存在一定缺陷，通用网络爬虫适用于为搜索引擎搜索广泛的主题，有较强的应用价值<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">通用网络爬虫的结构大致可以分为页面爬行模块 、页面分析模块、链接过滤模块、页面数据库、URL 队列、初始 URL 集合几个部分。为提高工作效率，通用网络爬虫会采取一定的爬行策略。 常用的爬行策略有：深度优先策略、广度优先策略<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">1) 深度优先策略：其基本方法是按照深度由低到高的顺序，依次访问下一级网页链接，直到不能再深入为止。 爬虫在完成一个爬行分支后返回到上一链接节点进一步搜索其它链接。 当所有链接遍历完后，爬行任务结束。 这种策略比较适合垂直搜索或站内搜索， 但爬行页面内容层次较深的站点时会造成资源的巨大浪费<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">2) 广度优先策略：此策略按照网页内容目录层次深浅来爬行页面，处于较浅目录层次的页面首先被爬行。 当同一层次中的页面爬行完毕后，爬虫再深入下一层继续爬行。 这种策略能够有效控制页面的爬行深度，避免遇到一个无穷深层分支时无法结束爬行的问题，实现方便，无需存储大量中间节点，不足之处在于需较长时间才能爬行到目录层次较深的页面<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para"><b>聚焦网络爬虫</b></div>
+<div class="para" label-module="para"><b></b></div>
+<div class="para" label-module="para">聚焦网络爬虫（Focused Crawler），又称主题网络爬虫（Topical Crawler），是指选择性地爬行那些与预先定义好的主题相关页面的网络爬虫[8]。 和通用网络爬虫相比，聚焦爬虫只需要爬行与主题相关的页面，极大地节省了硬件和网络资源，保存的页面也由于数量少而更新快，还可以很好地满足一些特定人群对特定领域信息的需求<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">聚焦网络爬虫和通用网络爬虫相比，增加了链接评价模块以及内容评价模块。聚焦爬虫爬行策略实现的关键是评价页面内容和链接的重要性，不同的方法计算出的重要性不同，由此导致链接的访问顺序也不同<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">1) 基于内容评价的爬行策略：DeBra将文本相似度的计算方法引入到网络爬虫中，提出了 Fish Search 算法，它将用户输入的查询词作为主题，包含查询词的页面被视为与主题相关，其局限性在于无法评价页面与主题相关 度 的 高 低 。 Herseovic对 Fish Search 算 法 进 行 了 改 进 ，提 出 了 Sharksearch 算法，利用空间向量模型计算页面与主题的相关度大小<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">2) 基于链接结构评价的爬行策略 ：Web 页面作为一种半结构化文档，包含很多结构信息，可用来评价链接重要性。 PageRank 算法最初用于搜索引擎信息检索中对查询结果进行排序，也可用于评价链接重要性，具体做法就是每次选择 PageRank 值较大页面中的链接来访问。 另一个利用 Web结构评价链接价值的方法是 HITS 方法，它通过计算每个已访问页面的 Authority 权重和 Hub 权重，并以此决定链接的访问顺序<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">3) 基于增强学习的爬行策略：Rennie 和 McCallum 将增强学习引入聚焦爬虫，利用贝叶斯分类器，根据整个网页文本和链接文本对超链接进行分类，为每个链接计算出重要性，从而决定链接的访问顺序<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">4) 基于语境图的爬行策略：Diligenti 等人提出了一种通过建立语境图（Context Graphs）学习网页之间的相关度，训练一个机器学习系统，通过该系统可计算当前页面到相关 Web 页面的距离，距离越近的页面中的链接优先访问。印度理工大学（IIT）和 IBM 研究中心的研究人员开发了一个典型的聚焦网络爬虫。 该爬虫对主题的定义既不是采用关键词也不是加权矢量，而是一组具有相同主题的网页。 它包含两个重要模块：一个是分类器，用来计算所爬行的页面与主题的相关度，确定是否与主题相关；另一个是净化器，用来识别通过较少链接连接到大量相关页面的中心页面<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para"><b>增量式网络爬虫</b></div>
+<div class="para" label-module="para">增量式网络爬虫（Incremental Web Crawler）是 指 对 已 下 载 网 页 采 取 增 量式更新和只爬行新产生的或者已经发生变化网页的爬虫，它能够在一定程度上保证所爬行的页面是尽可能新的页面。 和周期性爬行和刷新页面的网络爬虫相比，增量式爬虫只会在需要的时候爬行新产生或发生更新的页面 ，并不重新下载没有发生变化的页面，可有效减少数据下载量，及时更新已爬行的网页，减小时间和空间上的耗费，但是增加了爬行算法的复杂度和实现难度。增量式网络爬虫的体系结构[包含爬行模块、排序模块、更新模块、本地页面集、待爬行 URL 集以及本地页面URL 集<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">增量式爬虫有两个目标：保持本地页面集中存储的页面为最新页面和提高本地页面集中页面的质量。 为实现第一个目标，增量式爬虫需要通过重新访问网页来更新本地页面集中页面内容，常用的方法有：1) 统一更新法：爬虫以相同的频率访问所有网页，不考虑网页的改变频率；2) 个体更新法：爬虫根据个体网页的改变频率来重新访问各页面；3) 基于分类的更新法：爬虫根据网页改变频率将其分为更新较快网页子集和更新较慢网页子集两类，然后以不同的频率访问这两类网页<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">为实现第二个目标，增量式爬虫需要对网页的重要性排序，常用的策略有：广度优先策略、PageRank 优先策略等。IBM 开发的 WebFountain是一个功能强大的增量式网络爬虫，它采用一个优化模型控制爬行过程，并没有对页面变化过程做任何统计假设，而是采用一种自适应的方法根据先前爬行周期里爬行结果和网页实际变化速度对页面更新频率进行调整。北京大学的天网增量爬行系统旨在爬行国内 Web，将网页分为变化网页和新网页两类，分别采用不同爬行策略。 为缓解对大量网页变化历史维护导致的性能瓶颈，它根据网页变化时间局部性规律，在短时期内直接爬行多次变化的网页 ，为尽快获取新网页，它利用索引型网页跟踪新出现网页<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para"><b>Deep Web 爬虫</b><b></b></div>
+<div class="para" label-module="para">Web 页面按存在方式可以分为表层网页（Surface Web）和深层网页（Deep Web，也称 Invisible Web Pages 或 Hidden Web）。 表层网页是指传统搜索引擎可以索引的页面，以超链接可以到达的静态网页为主构成的 Web 页面。Deep Web 是那些大部分内容不能通过静态链接获取的、隐藏在搜索表单后的，只有用户提交一些关键词才能获得的 Web 页面。例如那些用户注册后内容才可见的网页就属于 Deep Web。 2000 年 Bright Planet 指出：Deep Web 中可访问信息容量是 Surface Web 的几百倍，是互联网上最大、发展最快的新型信息资源<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">Deep Web 爬虫体系结构包含六个基本功能模块 （爬行控制器、解析器、表单分析器、表单处理器、响应分析器、LVS 控制器）和两个爬虫内部数据结构（URL 列表、LVS 表）。 其中 LVS（Label Value Set）表示标签/数值集合，用来表示填充表单的数据源<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">Deep Web 爬虫爬行过程中最重要部分就是表单填写，包含两种类型：</div>
+<div class="para" label-module="para">1) 基于领域知识的表单填写：此方法一般会维持一个本体库，通过语义分析来选取合适的关键词填写表单。 Yiyao Lu[25]等人提出一种获取 Form 表单信息的多注解方法，将数据表单按语义分配到各个组中 ，对每组从多方面注解，结合各种注解结果来预测一个最终的注解标签；郑冬冬等人利用一个预定义的领域本体知识库来识别 Deep Web 页面内容， 同时利用一些来自 Web 站点导航模式来识别自动填写表单时所需进行的路径导航<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">2) 基于网页结构分析的表单填写： 此方法一般无领域知识或仅有有限的领域知识，将网页表单表示成 DOM 树，从中提取表单各字段值。 Desouky 等人提出一种 LEHW 方法，该方法将 HTML 网页表示为DOM 树形式，将表单区分为单属性表单和多属性表单，分别进行处理；孙彬等人提出一种基于 XQuery 的搜索系统，它能够模拟表单和特殊页面标记切换，把网页关键字切换信息描述为三元组单元，按照一定规则排除无效表单，将 Web 文档构造成 DOM 树，利用 XQuery 将文字属性映射到表单字段<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div>
+<div class="para" label-module="para">Raghavan 等人提出的 HIWE 系统中，爬行管理器负责管理整个爬行过程，分析下载的页面，将包含表单的页面提交表单处理器处理，表单处理器先从页面中提取表单，从预先准备好的数据集中选择数据自动填充并提交表单，由爬行控制器下载相应的结果页面<sup class="sup--normal" data-sup="1">
+[1]</sup><a class="sup-anchor" name="ref_[1]_284853">&nbsp;</a>
+<a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a><a name="ref_1"></a>。</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub284853_4" class="lemma-anchor " ></a>
+<a name="抓取目标分类" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>抓取目标分类</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="4" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">抓取目标的描述和定义是决定网页分析算法与URL搜索策略如何制订的基础。而网页分析算法和候选URL<a target=_blank href="/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>是决定<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>所提供的服务形式和爬虫<a target=_blank href="/item/%E7%BD%91%E9%A1%B5%E6%8A%93%E5%8F%96">网页抓取</a>行为的关键所在。这两个部分的算法又是紧密相关的。</div>
+<div class="para" label-module="para">现有聚焦爬虫对抓取目标的描述可分为基于目标网页特征、基于目标数据模式和基于领域概念3种。</div>
+<div class="para" label-module="para"><b>基于目标网页特征</b></div>
+<div class="para" label-module="para">基于目标网页特征的爬虫所抓取、存储并索引的对象一般为网站或网页。根据种子样本获取方式可分为：</div>
+<div class="para" label-module="para">（1） 预先给定的初始抓取种子样本；</div>
+<div class="para" label-module="para">（2） 预先给定的网页分类目录和与分类目录对应的种子样本，如Yahoo!分类结构等；</div>
+<div class="para" label-module="para">（3） 通过用户行为确定的抓取目标样例，分为：</div>
+<div class="para" label-module="para">(a) 用户浏览过程中显示标注的抓取样本；</div>
+<div class="para" label-module="para">(b) 通过用户日志挖掘得到访问模式及相关样本。</div>
+<div class="para" label-module="para">其中，网页特征可以是网页的内容特征，也可以是网页的链接结构特征，等等。</div>
+<div class="para" label-module="para"><b>基于目标数据模式</b></div>
+<div class="para" label-module="para">基于目标数据模式的<a target=_blank href="/item/%E7%88%AC%E8%99%AB">爬虫</a>针对的是网页上的数据，所抓取的数据一般要符合一定的模式，或者可以转化或映射为目标数据模式。</div>
+<div class="para" label-module="para"><b>基于领域概念</b></div>
+<div class="para" label-module="para">另一种描述方式是建立目标领域的本体或词典，用于从语义角度分析不同特征在某一主题中的重要程度。</div><div class="anchor-list">
+<a name="5" class="lemma-anchor para-title" ></a>
+<a name="sub284853_5" class="lemma-anchor " ></a>
+<a name="网页搜索策略" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>网页搜索策略</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="5" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">网页的抓取策略可以分为深度优先、广度优先和最佳优先三种。深度优先在很多情况下会导致爬虫的陷入(trapped)问题，目前常见的是广度优先和最佳优先方法。</div><div class="anchor-list">
+<a name="5_1" class="lemma-anchor para-title" ></a>
+<a name="sub284853_5_1" class="lemma-anchor " ></a>
+<a name="广度优先搜索" class="lemma-anchor " ></a>
+<a name="5-1" class="lemma-anchor " ></a>
+</div><div class="para-title level-3" label-module="para-title">
+<h3 class="title-text"><span class="title-prefix">网络爬虫</span>广度优先搜索</h3>
+</div>
+<div class="para" label-module="para"><a target=_blank href="/item/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">广度优先搜索</a>策略是指在抓取过程中，在完成当前层次的搜索后，才进行下一层次的搜索。该算法的设计和实现相对简单。在目前为覆盖尽可能多的网页，一般使用广度优先搜索方法。也有很多研究将广度优先搜索策略应用于聚焦爬虫中。其基本思想是认为与初始URL在一定链接距离内的网页具有主题相关性的概率很大。另外一种方法是将广度优先搜索与网页过滤技术结合使用，先用<a target=_blank href="/item/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AD%96%E7%95%A5">广度优先策略</a>抓取网页，再将其中无关的网页过滤掉。这些方法的缺点在于，随着抓取网页的增多，大量的无关网页将被下载并过滤，算法的效率将变低。</div><div class="anchor-list">
+<a name="5_2" class="lemma-anchor para-title" ></a>
+<a name="sub284853_5_2" class="lemma-anchor " ></a>
+<a name="最佳优先搜索" class="lemma-anchor " ></a>
+<a name="5-2" class="lemma-anchor " ></a>
+</div><div class="para-title level-3" label-module="para-title">
+<h3 class="title-text"><span class="title-prefix">网络爬虫</span>最佳优先搜索</h3>
+</div>
+<div class="para" label-module="para">最佳优先搜索策略按照一定的网页分析算法，预测候选URL与目标网页的相似度，或与主题的相关性，并选取评价最好的一个或几个URL进行抓取。它只访问经过网页分析算法预测为“有用”的网页。存在的一个问题是，在爬虫抓取路径上的很多相关网页可能被忽略，因为最佳优先策略是一种局部最优<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95">搜索算法</a>。因此需要将最佳优先结合具体的应用进行改进，以跳出局部最优点。将在第4节中结合网页分析算法作具体的讨论。研究表明，这样的闭环调整可以将无关网页数量降低30%~90%。</div><div class="anchor-list">
+<a name="5_3" class="lemma-anchor para-title" ></a>
+<a name="sub284853_5_3" class="lemma-anchor " ></a>
+<a name="深度优先搜索" class="lemma-anchor " ></a>
+<a name="5-3" class="lemma-anchor " ></a>
+</div><div class="para-title level-3" label-module="para-title">
+<h3 class="title-text"><span class="title-prefix">网络爬虫</span>深度优先搜索</h3>
+</div>
+<div class="para" label-module="para">深度优先搜索策略从起始网页开始，选择一个URL进入，分析这个网页中的URL，选择一个再进入。如此一个链接一个链接地抓取下去，直到处理完一条路线之后再处理下一条路线。<a target=_blank href="/item/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AD%96%E7%95%A5">深度优先策略</a>设计较为简单。然而门户网站提供的链接往往最具价值，<a target=_blank href="/item/PageRank">PageRank</a>也很高，但每深入一层，网页价值和PageRank都会相应地有所下降。这暗示了重要网页通常距离种子较近，而过度深入抓取到的网页却价值很低。同时，这种策略抓取深度直接影响着抓取命中率以及抓取效率，对抓取深度是该种策略的关键。相对于其他两种策略而言。此种策略很少被使用。</div><div class="anchor-list">
+<a name="6" class="lemma-anchor para-title" ></a>
+<a name="sub284853_6" class="lemma-anchor " ></a>
+<a name="网页分析算法" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>网页分析算法</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="6" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">网页分析算法可以归纳为基于<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91">网络拓扑</a>、基于网页内容和基于用户访问行为三种类型。</div>
+<div class="para" label-module="para"><b>拓扑分析算法</b></div>
+<div class="para" label-module="para">基于网页之间的链接，通过已知的网页或数据，来对与其有直接或间接链接关系的对象（可以是网页或网站等）作出评价的算法。又分为网页粒度、网站粒度和网页块粒度这三种。</div>
+<div class="para" label-module="para">1 网页(Webpage)粒度的分析算法</div>
+<div class="para" label-module="para">PageRank和<a target=_blank href="/item/HITS%E7%AE%97%E6%B3%95">HITS算法</a>是最常见的链接分析算法，两者都是通过对网页间链接度的<a target=_blank href="/item/%E9%80%92%E5%BD%92">递归</a>和规范化计算，得到每个网页的重要度评价。PageRank算法虽然考虑了用户访问行为的随机性和Sink网页的存在，但忽略了绝大多数用户访问时带有目的性，即网页和链接与查询主题的相关性。针对这个问题，HITS算法提出了两个关键的概念：权威型网页（authority）和中心型网页（hub）。</div>
+<div class="para" label-module="para">基于链接的抓取的问题是相关页面主题团之间的隧道现象，即很多在抓取路径上偏离主题的网页也指向目标网页，局部评价策略中断了在当前路径上的抓取行为。文献[21]提出了一种基于反向链接（BackLink）的分层式上下文模型（Context Model），用于描述指向目标网页一定物理跳数半径内的网页拓扑图的中心Layer0为目标网页，将网页依据指向目标网页的物理跳数进行层次划分，从外层网页指向内层网页的链接称为反向链接。</div>
+<div class="para" label-module="para">2 网站粒度的分析算法</div>
+<div class="para" label-module="para">网站粒度的资源发现和管理策略也比网页粒度的更简单有效。网站粒度的爬虫抓取的关键之处在于站点的划分和站点等级(SiteRank)的计算。SiteRank的计算方法与PageRank类似，但是需要对网站之间的链接作一定程度抽象，并在一定的模型下计算链接的权重。</div>
+<div class="para" label-module="para">网站划分情况分为按域名划分和按IP地址划分两种。文献[18]讨论了在分布式情况下，通过对同一个域名下不同<a target=_blank href="/item/%E4%B8%BB%E6%9C%BA">主机</a>、服务器的IP地址进行站点划分，构造站点图，利用类似PageRank的方法评价SiteRank。同时，根据不同文件在各个站点上的分布情况，构造文档图，结合SiteRank分布式计算得到DocRank。文献[18]证明，利用分布式的SiteRank计算，不仅大大降低了单机站点的算法代价，而且克服了单独站点对整个网络覆盖率有限的缺点。附带的一个优点是，常见PageRank 造假难以对SiteRank进行欺骗。</div>
+<div class="para" label-module="para">3 网页块粒度的分析算法</div>
+<div class="para" label-module="para">在一个页面中，往往含有多个指向其他页面的链接，这些链接中只有一部分是指向主题相关网页的，或根据网页的链接<a target=_blank href="/item/%E9%94%9A%E6%96%87%E6%9C%AC">锚文本</a>表明其具有较高重要性。但是，在PageRank和HITS算法中，没有对这些链接作区分，因此常常给网页分析带来广告等噪声链接的干扰。在网页块级别(Block?level)进行链接分析的算法的基本思想是通过VIPS网页分割算法将网页分为不同的网页块(page block)，然后对这些网页块建立page?to?block和block?to?page的链接<a target=_blank href="/item/%E7%9F%A9%E9%98%B5">矩阵</a>，?分别记为Z和X。于是，在page?to?page图上的网页块级别的PageRank为?W?p=X×Z；?在block?to?block图上的BlockRank为?W?b=Z×X。已经有人实现了块级别的PageRank和HITS算法，并通过实验证明，效率和准确率都比传统的对应算法要好。</div>
+<div class="para" label-module="para"><b>网页内容分析算法</b></div>
+<div class="para" label-module="para">基于网页内容的分析算法指的是利用网页内容（文本、数据等资源）特征进行的网页评价。网页的内容从原来的以<a target=_blank href="/item/%E8%B6%85%E6%96%87%E6%9C%AC">超文本</a>为主，发展到后来<a target=_blank href="/item/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2">动态页面</a>（或称为Hidden Web）数据为主，后者的数据量约为直接可见页面数据（PIW，Publicly Indexable Web）的400~500倍。另一方面，多媒体数据、Web Service等各种网络资源形式也日益丰富。因此，基于网页内容的分析算法也从原来的较为单纯的<a target=_blank href="/item/%E6%96%87%E6%9C%AC%E6%A3%80%E7%B4%A2">文本检索</a>方法，发展为涵盖网页<a target=_blank href="/item/%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96">数据抽取</a>、机器学习、<a target=_blank href="/item/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98">数据挖掘</a>、语义理解等多种方法的综合应用。本节根据网页数据形式的不同，将基于网页内容的分析算法，归纳以下三类：第一种针对以文本和<a target=_blank href="/item/%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a>为主的无结构或结构很简单的网页；第二种针对从结构化的<a target=_blank href="/item/%E6%95%B0%E6%8D%AE%E6%BA%90">数据源</a>（如RDBMS）动态生成的页面，其数据不能直接批量访问；第三种针对的数据界于第一和第二类数据之间，具有较好的结构，显示遵循一定模式或风格，且可以直接访问。</div>
+<div class="para" label-module="para">基于文本的网页分析算法</div>
+<div class="para" label-module="para">1) 纯文本分类与聚类算法</div>
+<div class="para" label-module="para">很大程度上借用了<a target=_blank href="/item/%E6%96%87%E6%9C%AC%E6%A3%80%E7%B4%A2">文本检索</a>的技术。<a target=_blank href="/item/%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90">文本分析</a>算法可以快速有效的对网页进行分类和聚类，但是由于忽略了网页间和网页内部的结构信息，很少单独使用。</div>
+<div class="para" label-module="para">2) 超文本分类和聚类算法</div>
+<div class="para" label-module="para">根据网页链接网页的相关类型对网页进行分类，依靠相关联的网页推测该网页的类型。</div><div class="anchor-list">
+<a name="7" class="lemma-anchor para-title" ></a>
+<a name="sub284853_7" class="lemma-anchor " ></a>
+<a name="补充" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">网络爬虫</span>补充</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="7" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">这些处理被称为网络抓取或者蜘蛛爬行。很多站点，尤其是<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>，都使用爬虫提供最新的数据，它主要用于提供它访问过页面的一个副本，然后，搜索引擎就可以对得到的页面进行索引，以提供快速的访问。蜘蛛也可以在web上用来自动执行一些任务，例如检查链接，确认html代码；也可以用来抓取网页上某种特定类型信息，例如抓取电子邮件地址（通常用于<a target=_blank href="/item/%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6">垃圾邮件</a>）。</div>
+<div class="para" label-module="para">一个网络蜘蛛就是一种机器人，或者软件代理。大体上，它从一组要访问的URL链接开始，可以称这些URL为种子。爬虫访问这些链接，它辨认出这些页面的所有<a target=_blank href="/item/%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a>，然后添加到这个URL列表，可以称作检索前沿。这些URL按照一定的策略反复访问。<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/0/b64543a98226cffc4cba2409b9014a90f703eafd?fr=lemma&ct=single" target="_blank"
+		title="" style="width:220px;height:110px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=84257ab48794a4c20e23e0293ef51bac/b64543a98226cffc4cba2409b9014a90f703eafd.jpg"  alt="" style="width:220px;height:110px;"/>
+</a>
+</div></div>
+<div class="para" label-module="para">1. 爬行策略</div>
+<div class="para" label-module="para">下述的三种网络特征，造成了设计网页爬虫抓取策略变得很难：</div>
+<div class="para" label-module="para"> 它巨大的数据量；</div>
+<div class="para" label-module="para"> 它快速的更新频率；</div>
+<div class="para" label-module="para"> <a target=_blank href="/item/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2">动态页面</a>的产生</div>
+<div class="para" label-module="para">它们三个特征一起产生了很多种类的爬虫抓取链接。</div>
+<div class="para" label-module="para">巨大的数据量暗示了爬虫，在给定的时间内，只可以抓取所下载网络的一部分，所以，它需要对它的抓取页面设置优先级；快速的更新频率说明在爬虫抓取下载某网站一个网页的时候，很有可能在这个站点又有新的网页被添加进来，或者这个页面被更新或者删除了。</div>
+<div class="para" label-module="para">最近新增的很多页面都是通过服务器端<a target=_blank href="/item/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80">脚本语言</a>产生的，无穷的参数组合也增加了爬虫抓取的难度，只有一小部分这种组合会返回一些独特的内容。例如，一个很小照片存储库仅仅通过get方式可能提供就给用户三种操作方式。如果这里存着四种分类方式，三种缩略图方式，两种文件格式，和一个禁止用户提供内容的选项，那么，同样的内容就可以通过48种方式访问。这种数学组合给网络爬虫创造的难处就是，为了获取不同的内容，他们必须筛选无穷仅有微小变化的组合。</div>
+<div class="para" label-module="para">正如<a target=_blank href="/item/%E7%88%B1%E5%BE%B7%E5%8D%8E">爱德华</a>等人所说的：“用于检索的带宽不是无限的，也不是免费的；所以，如果引入衡量爬虫抓取质量或者新鲜度的有效指标的话，不但伸缩性，连有效性都将变得十分必要”（爱德华等人，2001年）。一个爬虫就必须小心的选择下一步要访问什么页面。网页爬虫的行为通常是四种策略组合的结果。</div>
+<div class="para" label-module="para">♦ 选择策略，决定所要下载的页面；</div>
+<div class="para" label-module="para">♦ 重新访问策略，决定什么时候检查页面的更新变化；</div>
+<div class="para" label-module="para">♦ 平衡礼貌策略，指出怎样避免站点超载；</div>
+<div class="para" label-module="para">♦ 并行策略，指出怎么协同达到分布式抓取的效果；</div>
+<div class="para" label-module="para">1.1 选择策略：</div>
+<div class="para" label-module="para">就现在网络资源的大小而言，即使很大的<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>也只能获取网络上可得到资源的一小部分。由<a target=_blank href="/item/%E5%8A%B3%E4%BC%A6%E6%96%AF">劳伦斯</a>河盖尔斯共同做的一项研究指出，没有一个搜索引擎抓取的内容达到网络的16%(劳伦斯河盖尔斯，2001)。网络爬虫通常仅仅下载网页内容的一部分，但是大家都还是强烈要求下载的部分包括最多的相关页面，而不仅仅是一个随机的简单的站点。</div>
+<div class="para" label-module="para">这就要求一个公共标准来区分网页的重要程度，一个页面的重要程度与他自身的质量有关，与按照链接数、访问数得出的受欢迎程度有关，甚至与他本身的网址（后来出现的把搜索放在一个顶级域名或者一个固定页面上的垂直搜索）有关。设计一个好的搜索策略还有额外的困难，它必须在不完全信息下工作，因为整个页面的集合在抓取时是未知的。</div>
+<div class="para" label-module="para">Cho等人（Cho et al，1998）做了第一份抓取策略的研究。他们的数据是<a target=_blank href="/item/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6">斯坦福大学</a>网站中的18万个页面，使用不同的策略分别模仿抓取。排序的方法使用了广度优先，后链计数，和部分pagerank算法。计算显示，如果你想要优先下载pagerank高的页面，那么，部分PageRank策略是比较好的，其次是广度优先和后链计数。并且，这样的结果仅仅是针对一个站点的。</div>
+<div class="para" label-module="para">Najork和Wiener (Najork and Wiener, 2001)采用实际的爬虫，对3.28亿个网页，采用广度优先研究。他们发现广度优先会较早的抓到PageRank高的页面（但是他们没有采用其他策略进行研究）。作者给出的解释是：“最重要的页面会有很多的<a target=_blank href="/item/%E4%B8%BB%E6%9C%BA">主机</a>连接到他们，并且那些链接会较早的发现，而不用考虑从哪一个主机开始。”</div>
+<div class="para" label-module="para">Abiteboul (Abiteboul 等人, 2003)，设计了一种基于OPIC（在线页面重要指数）的抓取战略。在OPIC中，每一个页面都有一个相等的初始权值，并把这些权值平均分给它所指向的页面。这种算法与Pagerank相似，但是他的速度很快，并且可以一次完成。OPIC的程序首先抓取获取权值最大的页面，实验在10万个幂指分布的模拟页面中进行。并且，实验没有和其它策略进行比较，也没有在真正的WEB页面测试。</div>
+<div class="para" label-module="para">Boldi等人(Boldi et al., 2004)的模拟检索实验进行在 从.it网络上取下的4000万个页面和从webbase得到的1亿个页面上，测试广度优先和深度优先，随机序列和有序序列。比较的基础是真实页面pageRank值和计算出来的pageRank值的接近程度。令人惊奇的是，一些计算pageRank很快的页面（特别明显的是<a target=_blank href="/item/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AD%96%E7%95%A5">广度优先策略</a>和有序序列）仅仅可以达到很小的接近程度。</div>
+<div class="para" label-module="para">Baeza-Yates等人(Baeza-Yates et al., 2005) 在从.gr域名和.cl域名子网站上获取的300万个页面上模拟实验，比较若干个抓取策略。结果显示OPIC策略和站点队列长度，都比广度优先要好；并且如果可行的话，使用之前的爬行抓取结果来指导这次抓取，总是十分有效的。</div>
+<div class="para" label-module="para">Daneshpajouh等人(Daneshpajouh et al., 2008)设计了一个用于寻找好种子的社区。它们从来自不同社区的高PageRank页面开始检索的方法，<a target=_blank href="/item/%E8%BF%AD%E4%BB%A3">迭代</a>次数明显小于使用<a target=_blank href="/item/%E9%9A%8F%E6%9C%BA%E7%A7%8D%E5%AD%90">随机种子</a>的检索。使用这种方式，可以从以前抓取页面之中找到好的种子，使用这些种子是十分有效的。</div>
+<div class="para" label-module="para">1.1.1 限定访问链接</div>
+<div class="para" label-module="para">一个爬虫可能仅仅想找到html页面的种子而避免其他的文件类型。为了仅仅得到html的资源，一个爬虫可以首先做一个http head的请求，以在使用request方法获取所有的资源之前，决定这个网络文件的类型。为了避免要发送过多的head请求，爬虫可以交替的检查url并且仅仅对以html，htm和反斜杠结尾的文件发送资源请求。这种策略会导致很多的html资源在无意中错过，一种相似的策略是将网络资源的扩展名同已知是html文件类型的一组扩展名（如.html,.htm,.asp,.php,.aspx,反斜杠）进行比较。</div>
+<div class="para" label-module="para">一些爬虫也会限制对任何含有“？”的资源（这些是动态生成的）进行获取请求，以避免蜘蛛爬行在某一个站点中陷入下载无穷无尽的URL的困境。</div>
+<div class="para" label-module="para">1.1.2 路径检索</div>
+<div class="para" label-module="para">一些爬虫会尽可能多的尝试下载一个特定站点的资源。Cothey(Cothey,2004)引入了一种路径检索的爬虫，它会尝试抓取需要检索资源的所有URL。例如，给定一个种子地址：它将会尝试检索/hamster/menkey/,/hamster/和/ 。Cothey发现路径检索对发现独立资源，或者一些通常爬虫检索不到的的连接是非常有效的。</div>
+<div class="para" label-module="para">一些路径检索的爬虫也被称为收割机软件，因为他们通常用于收割或者收集所有的内容，可能是从特定的页面或者主机收集相册的照片。</div>
+<div class="para" label-module="para">1.1.3 聚焦抓取</div>
+<div class="para" label-module="para">爬虫所抓取页面的重要程度也可以表述成它与给定查询之间相似程度的函数。网络爬虫尝试下载相似页面，可以称为聚焦检索或者主题检索。关于主题检索和聚焦检索的概念，最早是由Menczer（Menczer 1997; Menczer and Belew, 1998）和Chakrabarti等人首先提出来的(Chakrabarti et al., 1999)。</div>
+<div class="para" label-module="para">聚焦检索的主要问题是网页爬虫的使用环境，我们希望在实际下载页面之前，就可以知道给定页面和查询之间的相似度。一个可能的方法就是在链接之中设置<a target=_blank href="/item/%E9%94%9A%E7%82%B9">锚点</a>，这就是在早期时候，Pinkerton（Pinkerton，1994）曾经在一个爬虫中采用的策略。Diligenti等人（Diligenti等人，2000）建议使用已经抓取页面的内容去推测查询和未访问页的相似度。一个聚焦查询的表现的好坏主要依赖于查询主题内容的丰富程度，通常还会依赖页面查询引擎提供的查询起点。</div>
+<div class="para" label-module="para">1.1.4 抓取深层的网页</div>
+<div class="para" label-module="para">很多的页面隐藏的很深或隐藏在在看不到的网络之中。这些页面通常只有在向数据库提交查询的时候才可以访问到，如果没有链接指向他们的话，一般的爬虫是不能访问到这些页面的。谷歌站点地图协议和mod oai（Nelson等人，2005）尝试允许发现这些深层次的资源。</div>
+<div class="para" label-module="para">深层页面抓取器增加了抓取网页的链接数。一些爬虫仅仅抓取形如&lt;a href=”url”链接。某些情况下，例如Googlebot，WEB抓取的是所有<a target=_blank href="/item/%E8%B6%85%E6%96%87%E6%9C%AC">超文本</a>所包含的内容，标签和文本。</div>
+<div class="para" label-module="para">1.1.5 WEB3.0检索</div>
+<div class="para" label-module="para">Web3.0为下一代搜索技术定义了更先进的技术和新的准则，可以概括为<a target=_blank href="/item/%E8%AF%AD%E4%B9%89%E7%BD%91%E7%BB%9C">语义网络</a>和网站模板解析的概念。第三代检索技术将建立在人机巧妙的联系的基础上。</div>
+<div class="para" label-module="para">1.2重新访问策略</div>
+<div class="para" label-module="para">网络具有动态性很强的特性。抓取网络上的一小部分内容可能会花费真的很长的时间，通常用周或者月来衡量。当爬虫完成它的抓取的任务以后，很多操作是可能会发生的，这些操作包括新建，更新和删除。</div>
+<div class="para" label-module="para">从<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>的角度来看，不检测这些事件是有成本的，成本就是我们仅仅拥有一份过时的资源。最常使用的成本函数，是新鲜度和过时性（2000年，Cho 和Garcia-Molina）</div>
+<div class="para" label-module="para">新鲜度：这是一个衡量抓取内容是不是准确的二元值。在时间t内，仓库中页面p的新鲜度是这样定义的：</div>
+<div class="para" label-module="para"><div class="lemma-picture text-pic layout-left" style="width:250px; float: left;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/0/c8ab0bce50fb0b1cb600c8eb?fr=lemma&ct=single" target="_blank"
+		title="新鲜度" style="width:250px;height:33px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D250/sign=d5345924a18b87d65442ac1a37082860/d6ca7bcb0a46f21fd821b546f6246b600c33ae8a.jpg"  alt="新鲜度" style="width:250px;height:33px;"/>
+</a>
+<span class="description">
+新鲜度
+</span>
+</div>过时性:这是一个衡量本地已抓取的内容过时程度的指标。在时间t时，仓库中页面p的时效性的定义如下：</div>
+<div class="para" label-module="para"><div class="lemma-picture text-pic layout-left" style="width:250px; float: left;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/0/faacb5640164a6d5f73654f5?fr=lemma&ct=single" target="_blank"
+		title="过时性" style="width:250px;height:20px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D250/sign=b31eeddf828ba61edbeecf2a713497cc/d1160924ab18972bd62cebdfe6cd7b899e510a94.jpg"  alt="过时性" style="width:250px;height:20px;"/>
+</a>
+<span class="description">
+过时性
+</span>
+</div>在页面抓取中，新鲜度和过时性的发展</div>
+<div class="para" label-module="para">Coffman等人（Edward G. Coffman，1998）是从事爬虫对象定义的，他们提出了一个相当于新鲜度的概念，但是使用了不同的措词：他们建议爬虫必须最小化过时页面部分。他们指出网络爬行的问题就相当于多个队列，一个投票系统；这里，爬虫是服务器，不同的站点是队列。页面修改是到达的顾客，页面切换的时间是页面进入一个单一站点的间隔。在这个模型下，每一个顾客在投票系统的平均时间，相当于爬虫的平均过时性。</div>
+<div class="para" label-module="para">爬虫的目标是尽可能高的提高页面的新鲜度，同时降低页面的过时性。这一目标并不是完全一样的，第一种情况，爬虫关心的是有多少页面时过时的；在第二种情况，爬虫关心的页面过时了多少。</div>
+<div class="para" label-module="para">两种最简单的重新访问策略是由Cho和Garcia-Molina研究的（Cho 和Garcia-Molina，2003）：</div>
+<div class="para" label-module="para">统一策略：使用相同的频率，重新访问收藏中的所有的链接，而不考虑他们更新频率。</div>
+<div class="para" label-module="para">正比策略：对变化越多的网页，重新访问的频率也越高。网页访问的频率和网页变化的频率直接相关。</div>
+<div class="para" label-module="para">（两种情况下，爬虫的重新抓取都可以采用随机方式，或者固定的顺序）</div>
+<div class="para" label-module="para">Cho和Garcia-Molina证明了一个出人意料的结果。以平均新鲜度方式衡量，统一策略在模拟页面和真实的网络抓取中都比正比策略出色。对于这种结果的解释是：当一个页面变化太快的时候，爬虫将会将会在不断的尝试重新抓取而浪费很多时间，但是却还是不能保证页面的新鲜度。</div>
+<div class="para" label-module="para">为了提高页面的新鲜度，我们应该宣判变化太快的页面死罪（Cho和Garcia-Molina, 2003a）。最佳的重新访问策略既不是统一策略，也不是正比策略；保持平均页面新鲜度高的最佳方法策略包括忽略那些变化太快的页面，而保持页面平均过时性低的方法则是对每一页按照页面变化率单调变化的策略访问。两种情况下，最佳的策略较正比策略，都更接近统一策略。正如Coffman等人（Edward G.Coffman，1998）所注意到的：“为了最小化页面过时的时间，对任一个页面的访问都应该尽可能的均匀间隔地访问。”对于重新访问的详尽的策略在大体上是不可以达到的，但是他们可以从数学上得到，因为他们依赖于页面的变化。（Cho和Garcia-Molina,2003a）指出指数变化是描述页面变化的好方法，同时（Ipeirotis等人，2005）指出了怎么使用统计工具去发现适合这些变化的参数。注意在这里的重新访问策略认为每一个页面都是相同的（网络上所有的页面价值都是一样的）这不是现实的情况，所以，为了获取更好的抓取策略，更多有关网页质量的信息应该考虑进去。</div>
+<div class="para" label-module="para">1.3 平衡礼貌策略</div>
+<div class="para" label-module="para">爬虫相比于人，可以有更快的检索速度和更深的层次，所以，他们可能使一个站点瘫痪。不需要说一个单独的爬虫一秒钟要执行多条请求，下载大的文件。一个服务器也会很难响应多线程爬虫的请求。</div>
+<div class="para" label-module="para">就像Koster（Koster，1995）所注意的那样，爬虫的使用对很多工作都是很有用的，但是对一般的社区，也需要付出代价。使用爬虫的代价包括：</div>
+<div class="para" label-module="para"> 网络资源：在很长一段时间，爬虫使用相当的带宽高度并行地工作。</div>
+<div class="para" label-module="para"> 服务器超载：尤其是对给定服务器的访问过高时。</div>
+<div class="para" label-module="para"> 质量糟糕的爬虫，可能导致服务器或者<a target=_blank href="/item/%E8%B7%AF%E7%94%B1%E5%99%A8">路由器</a>瘫痪，或者会尝试下载自己无法处理的页面。</div>
+<div class="para" label-module="para"> 个人爬虫，如果过多的人使用，可能导致网络或者服务器阻塞。</div>
+<div class="para" label-module="para">对这些问题的一个部分解决方法是漫游器排除协议（Robots exclusion protocol），也被称为<a target=_blank href="/item/robots.txt">robots.txt</a>议定书（Koster，1996），这份协议对于管理员指明<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8">网络服务器</a>的那一部分不能到达是一个标准。这个标准没有包括重新访问一台服务器的间隔的建议，虽然访问间隔是避免服务器超载的最有效的办法。最近的商业搜索软件，如Ask Jeeves，MSN和Yahoo可以在robots.txt中使用一个额外的 “Crawl-delay”参数来指明请求之间的延迟。</div>
+<div class="para" label-module="para">对连接间隔时间的第一个建议由Koster 1993年给出，时间是60秒。按照这个速度，如果一个站点有超过10万的页面，即使我们拥有零延迟和无穷带宽的完美连接，它也会需要两个月的时间来下载整个站点，并且，这个服务器中的资源，只有一小部分可以使用。这似乎是不可以接受的。</div>
+<div class="para" label-module="para">Cho（Cho和Garcia-Molina, 2003）使用10秒作为访问的间隔时间，WIRE爬虫(Baeza-Yates and Castillo, 2002)使用15秒作为默认间隔。MercatorWeb(Heydon 和Najork, 1999)爬虫使用了一种自适应的平衡策略：如果从某一服务器下载一个文档需要t秒钟，爬虫就等待10t秒的时间，然后开始下一个页面。Dill等人 (Dill et al., 2002) 使用1秒。</div>
+<div class="para" label-module="para">对于那些使用爬虫用于研究目的的，一个更详细的成本-效益分析是必要的，当决定去哪一个站点抓取，使用多快的速度抓取的时候，伦理的因素也需要考虑进来。</div>
+<div class="para" label-module="para">访问记录显示已知爬虫的访问间隔从20秒钟到3-4分钟不等。需要注意的是即使很礼貌，采取了所有的安全措施来避免服务器超载，还是会引来一些<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8">网络服务器</a>管理员的抱怨的。Brin和Page注意到：运行一个针对超过50万服务器的爬虫，会产生很多的邮件和电话。这是因为有无数的人在上网，而这些人不知道爬虫是什么，因为这是他们第一次见到。（Brin和Page，1998）</div>
+<div class="para" label-module="para">1.4 并行策略</div>
+<div class="para" label-module="para">一个并行爬虫是并行运行多个进程的爬虫。它的目标是最大化下载的速度，同时尽量减少并行的开销和下载重复的页面。为了避免下载一个页面两次，爬虫系统需要策略来处理爬虫运行时新发现的URL，因为同一个URL地址，可能被不同的爬虫进程抓到。</div>
+<div class="para" label-module="para">2. 网络爬虫体系结构</div>
+<div class="para" label-module="para">网页爬虫的高层体系结构</div>
+<div class="para" label-module="para">一个爬虫不能像上面所说的，仅仅只有一个好的抓取策略，还需要有一个高度优化的结构。</div>
+<div class="para" label-module="para">Shkapenyuk和Suel（Shkapenyuk和Suel，2002）指出：设计一个短时间内，一秒下载几个页面的颇慢的爬虫是一件很容易的事情，而要设计一个使用几周可以下载百万级页面的高性能的爬虫，将会在<a target=_blank href="/item/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1">系统设计</a>，I/O和网络效率，健壮性和易用性方面遇到众多挑战。</div>
+<div class="para" label-module="para">网路爬虫是<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>的核心，他们算法和结构上的细节被当作商业机密。当爬虫的设计发布时，总会有一些为了阻止别人复制工作而缺失的细节。人们也开始关注主要用于阻止主要搜索引擎发布他们的<a target=_blank href="/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>的“搜索引擎<a target=_blank href="/item/%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6">垃圾邮件</a>”。</div>
+<div class="para" label-module="para">2.1 URL一般化</div>
+<div class="para" label-module="para">爬虫通常会执行几种类型的URL规范化来避免重复抓取某些资源。URL一般化也被称为URL标准化，指的是修正URL并且使其前后一致的过程。这里有几种一般化方法，包括转化URL为小写的，去除逗号（如‘.’ ‘..’等），对非空的路径，在末尾加反斜杠。</div>
+<div class="para" label-module="para">3. 爬虫身份识别</div>
+<div class="para" label-module="para">网络爬虫通过使用http请求的<a target=_blank href="/item/%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86">用户代理</a>(User Agent)字段来向<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8">网络服务器</a>表明他们的身份。<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%91%98">网络管理员</a>则通过检查网络服务器的日志，使用用户代理字段来辨认哪一个爬虫曾经访问过以及它访问的频率。用户代理字段可能会包含一个可以让管理员获取爬虫更多信息的URL。邮件抓取器和其他怀有恶意的网络爬虫通常不会留任何的用户代理字段内容，或者他们也会将他们的身份伪装成浏览器或者其他的知名爬虫。</div>
+<div class="para" label-module="para">对于网路爬虫，留下用户标志信息是十分重要的；这样，<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%91%98">网络管理员</a>在需要的时候就可以联系爬虫的主人。有时，爬虫可能会陷入爬虫陷阱或者使一个服务器超负荷，这时，爬虫主人需要使爬虫停止。对那些有兴趣了解特定爬虫访问时间网络管理员来讲，<a target=_blank href="/item/%E7%94%A8%E6%88%B7%E6%A0%87%E8%AF%86">用户标识</a>信息是十分重要的。</div>
+<div class="para" label-module="para">4.用户爬虫的例子</div>
+<div class="para" label-module="para">以下是一系列已经发布的一般用途的网络爬虫（除了主题检索的爬虫）的体系结构，包括了对不同组件命名和突出特点的简短的描述。</div>
+<div class="para" label-module="para"> RBSE （Eichmann，1994）是第一个发布的爬虫。它有两个基础程序。第一个是“spider”，抓取队列中的内容到一个关系数据库中，第二个程序是“mite”，是一个修改后的www的ASCII浏览器，负责从网络上下载页面。</div>
+<div class="para" label-module="para"> WebCrawler（Pinkerton，1994）是第一个公开可用的 用来建立<a target=_blank href="/item/%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95">全文索引</a>的一个子程序，他使用库www来下载页面；另外一个程序使用广度优先来解析获取URL并对其排序；它还包括一个根据选定文本和查询相似程度爬行的实时爬虫。</div>
+<div class="para" label-module="para"> World Wide Web Worm (McBryan, 1994)是一个用来为文件建立包括标题和URL简单索引的爬虫。索引可以通过grep式的Unix命令来搜索。</div>
+<div class="para" label-module="para"> Google Crawler (Brin and Page, 1998)用了一些细节来描述，但是这些细节仅仅是关于使用C++和Python编写的、一个早期版本的体系结构。因为文本解析就是全文检索和URL抽取的过程，所以爬虫集成了索引处理。这里拥有一个URL服务器，用来给几个<a target=_blank href="/item/%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F">爬虫程序</a>发送要抓取的URL列表。在文本解析的时候，新发现的URL传送给URL服务器并检测这个URL是不是已经存在，如果不存在的话，该URL就加入到URL服务器中。</div>
+<div class="para" label-module="para"> CobWeb (da Silva et al., 1999)使用了一个中央“调度者”和一系列的“分布式的搜集者”。搜集者解析下载的页面并把找到的URL发送给调度者，然后调度者反过来分配给搜集者。调度者使用<a target=_blank href="/item/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AD%96%E7%95%A5">深度优先策略</a>，并且使用平衡礼貌策略来避免服务器超载。爬虫是使用Perl语言编写的。</div>
+<div class="para" label-module="para"> Mercator (Heydon and Najork, 1999; Najork and Heydon, 2001)是一个分布式的，模块化的使用java编写的网络爬虫。它的模块化源自于使用可互换的的“协议模块”和“处理模块”。协议模块负责怎样获取网页（例如使用HTTP），处理模块负责怎样处理页面。标准处理模块仅仅包括了解析页面和抽取URL，其他处理模块可以用来检索文本页面，或者搜集<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE">网络数据</a>。</div>
+<div class="para" label-module="para"> WebFountain (Edwards et al., 2001)是一个与Mercator类似的分布式的模块化的爬虫，但是使用C++编写的。它的特点是一个管理员机器控制一系列的蚂蚁机器。经过多次下载页面后，页面的变化率可以推测出来，这时，一个非线性的方法必须用于求解方程以获得一个最大的新鲜度的访问策略。作者推荐在早期检索阶段使用这个爬虫，然后用统一策略检索，就是所有的页面都使用相同的频率访问。</div>
+<div class="para" label-module="para"> PolyBot [Shkapenyuk and Suel, 2002]是一个使用C++和Python编写的分布式网络爬虫。它由一个爬虫管理者，一个或多个<a target=_blank href="/item/%E4%B8%8B%E8%BD%BD%E8%80%85">下载者</a>，一个或多个DNS解析者组成。抽取到的URL被添加到硬盘的一个队列里面，然后使用<a target=_blank href="/item/%E6%89%B9%E5%A4%84%E7%90%86">批处理</a>的模式处理这些URL。平衡礼貌方面考虑到了第二、三级网域，因为第三级网域通常也会保存在同一个<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8">网络服务器</a>上。</div>
+<div class="para" label-module="para"> WebRACE (Zeinalipour-Yazti and Dikaiakos, 2002)是一个使用java实现的，拥有检索模块和缓存模块的爬虫，它是一个很通用的称作eRACE的系统的一部分。系统从用户得到下载页面的请求，爬虫的行为有点像一个聪明的<a target=_blank href="/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8">代理服务器</a>。系统还监视订阅网页的请求，当网页发生改变的时候，它必须使爬虫下载更新这个页面并且通知订阅者。WebRACE最大的特色是，当大多数的爬虫都从一组URL开始的时候，WebRACE可以连续地的接收抓取开始的URL地址。</div>
+<div class="para" label-module="para"> Ubicrawer (Boldi et al., 2004)是一个使用java编写的分布式爬虫。它没有中央程序。它由一组完全相同的代理组成，分配功能通过<a target=_blank href="/item/%E4%B8%BB%E6%9C%BA">主机</a>前后一致的散列计算进行。这里没有重复的页面，除非爬虫崩溃了（然后，另外一个代理就会接替崩溃的代理重新开始抓取）。爬虫设计为高伸缩性和允许失败的。</div>
+<div class="para" label-module="para"> FAST Crawler (Risvik and Michelsen, 2002) 是一个分布式的爬虫，在Fast Search&amp;Transfer中使用，关于其体系结构的一个大致的描述可以在[citation needed]找到。</div>
+<div class="para" label-module="para"> Labrador,一个工作在开源项目Terrier Search Engine上的非开源的爬虫。</div>
+<div class="para" label-module="para"> TeezirCrawler是一个非开源的可伸缩的<a target=_blank href="/item/%E7%BD%91%E9%A1%B5%E6%8A%93%E5%8F%96">网页抓取</a>器，在Teezir上使用。该程序被设计为一个完整的可以处理各种类型网页的爬虫，包括各种JavaScript和HTML文档。爬虫既支持主题检索也支持非主题检索。</div>
+<div class="para" label-module="para"> Spinn3r, 一个通过博客构建反馈信息的爬虫。 Spinn3r是基于java的，它的大部分的体系结构都是开源的。</div>
+<div class="para" label-module="para"> HotCrawler,一个使用<a target=_blank href="/item/c%E8%AF%AD%E8%A8%80">c语言</a>和php编写的爬虫。</div>
+<div class="para" label-module="para"> ViREL Microformats Crawler，搜索公众信息作为嵌入到网页的一小部分。</div>
+<div class="para" label-module="para">除了上面列出的几个特定的爬虫结构以外，还有Cho (Cho and Garcia-Molina, 2002)和Chakrabarti (Chakrabarti, 2003)发布的一般的爬虫体系结构。</div>
+<div class="para" label-module="para">4.1 开源爬虫</div>
+<div class="para" label-module="para"> DataparkSearch是一个在GNU GPL许可下发布的爬虫<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>。</div>
+<div class="para" label-module="para"> GNU Wget是一个在GPL许可下，使用C语言编写的命令行式的爬虫。它主要用于<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8">网络服务器</a>和FTP服务器的<a target=_blank href="/item/%E9%95%9C%E5%83%8F">镜像</a>。</div>
+<div class="para" label-module="para"> <a target=_blank href="/item/Heritrix">Heritrix</a>是一个<a target=_blank href="/item/%E4%BA%92%E8%81%94%E7%BD%91%E6%A1%A3%E6%A1%88%E9%A6%86">互联网档案馆</a>级的爬虫，设计的目标为对大型网络的大部分内容的定期存档快照，是使用java编写的。</div>
+<div class="para" label-module="para"> Ht://Dig在它和索引引擎中包括了一个网页爬虫。</div>
+<div class="para" label-module="para"> HTTrack用网络爬虫创建<a target=_blank href="/item/%E7%BD%91%E7%BB%9C%E7%AB%99%E7%82%B9">网络站点</a>镜像，以便<a target=_blank href="/item/%E7%A6%BB%E7%BA%BF%E8%A7%82%E7%9C%8B">离线观看</a>。它使用C语言编写，在GPL许可下发行。</div>
+<div class="para" label-module="para"> ICDL Crawler是一个用C++编写，跨平台的网络爬虫。它仅仅使用空闲的CPU资源，在ICDL标准上抓取整个站点。</div>
+<div class="para" label-module="para"> JSpider是一个在GPL许可下发行的，高度可配置的，可定制的网络爬虫引擎。</div>
+<div class="para" label-module="para"> LLarbin由Sebastien Ailleret开发；</div>
+<div class="para" label-module="para"> Webtools4larbin由Andreas Beder开发；</div>
+<div class="para" label-module="para"> Methabot是一个使用C语言编写的高速优化的，使用命令行方式运行的，在2-clause BSD许可下发布的网页检索器。它的主要的特性是高可配置性，模块化；它检索的目标可以是本地文件系统，HTTP或者FTP。</div>
+<div class="para" label-module="para"> Nutch是一个使用java编写，在Apache许可下发行的爬虫。它可以用来连接Lucene的全文检索套件；</div>
+<div class="para" label-module="para"> Pavuk是一个在GPL许可下发行的，使用命令行的WEB站点<a target=_blank href="/item/%E9%95%9C%E5%83%8F">镜像</a>工具，可以选择使用X11的图形界面。与wget和httprack相比，他有一系列先进的特性，如以<a target=_blank href="/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a>为基础的文件过滤规则和文件创建规则。</div>
+<div class="para" label-module="para"> WebVac是<a target=_blank href="/item/%E6%96%AF%E5%9D%A6%E7%A6%8F">斯坦福</a>WebBase项目使用的一个爬虫。</div>
+<div class="para" label-module="para"> WebSPHINX(Miller and Bharat, 1998)是一个由java类库构成的，基于文本的<a target=_blank href="/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a>。它使用多线程进行网页检索，html解析，拥有一个<a target=_blank href="/item/%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2">图形用户界面</a>用来设置开始的种子URL和抽取下载的数据；</div>
+<div class="para" label-module="para"> WIRE-网络信息检索环境(Baeza-Yates 和 Castillo, 2002)是一个使用C++编写，在GPL许可下发行的爬虫，内置了几种页面下载安排的策略，还有一个生成报告和统计资料的模块，所以，它主要用于网络特征的描述；</div>
+<div class="para" label-module="para"> LWP：RobotUA(Langheinrich,2004)是一个在Perl5许可下发行的，可以优异的完成并行任务的 Perl类库构成的机器人。</div>
+<div class="para" label-module="para"> Web Crawler是一个为.net准备的<a target=_blank href="/item/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81">开放源代码</a>的网络检索器（C#编写）。</div>
+<div class="para" label-module="para"> Sherlock Holmes收集和检索本地和网络上的文本类数据（文本文件，网页），该项目由<a target=_blank href="/item/%E6%8D%B7%E5%85%8B">捷克</a>门户网站中枢（Czech web portal Centrum）赞助并且主用商用于这里；它同时也使用在。</div>
+<div class="para" label-module="para"> <a target=_blank href="/item/YaCy">YaCy</a>是一个基于P2P网络的免费的<a target=_blank href="/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">分布式搜索引擎</a>（在GPL许可下发行）；</div>
+<div class="para" label-module="para"> Ruya是一个在广度优先方面表现优秀，基于等级抓取的<a target=_blank href="/item/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81">开放源代码</a>的网络爬虫。在英语和日语页面的抓取表现良好，它在GPL许可下发行，并且完全使用Python编写。按照<a target=_blank href="/item/robots.txt">robots.txt</a>有一个延时的单网域延时爬虫。</div>
+<div class="para" label-module="para"> Universal Information Crawler快速发展的网络爬虫，用于检索存储和分析数据；</div>
+<div class="para" label-module="para"> Agent Kernel，当一个爬虫抓取时，用来进行安排，并发和存储的java框架。</div>
+<div class="para" label-module="para"> 是一个使用C#编写，需要SQL Server 2005支持的，在GPL许可下发行的多功能的开源的机器人。它可以用来下载，检索，存储包括电子邮件地址，文件，<a target=_blank href="/item/%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a>，图片和网页在内的各种数据。</div>
+<div class="para" label-module="para"> Dine是一个多线程的java的http客户端。它可以在LGPL许可下进行二次开发。</div>
+<div class="para" label-module="para">网络爬虫的组成</div>
+<div class="para" label-module="para">在网络爬虫的系统框架中，主过程由控制器，解析器，资源库三部分组成。控制器的主要工作是负责给多线程中的各个爬虫线程分配工作任务。解析器的主要工作是下载网页，进行页面的处理，主要是将一些JS脚本标签、CSS代码内容、空格字符、HTML标签等内容处理掉，爬虫的基本工作是由解析器完成。资源库是用来存放下载到的网页资源，一般都采用大型的数据库存储，如<a target=_blank href="/item/Oracle%E6%95%B0%E6%8D%AE%E5%BA%93">Oracle数据库</a>，并对其建立索引。</div>
+<div class="para" label-module="para">控制器</div>
+<div class="para" label-module="para">控制器是网络爬虫的中央控制器，它主要是负责根据系统传过来的URL链接，分配一线程，然后启动线程调用爬虫爬取网页的过程。</div>
+<div class="para" label-module="para">解析器</div>
+<div class="para" label-module="para">解析器是负责网络爬虫的主要部分，其负责的工作主要有：下载网页的功能，对网页的文本进行处理，如过滤功能，抽取特殊HTML标签的功能，分析数据功能。</div>
+<div class="para" label-module="para">资源库</div>
+<div class="para" label-module="para">主要是用来存储网页中下载下来的数据记录的容器，并提供生成索引的目标源。中大型的数据库产品有：Oracle、Sql Server等。</div>
+<div class="anchor-list">
+<a name="a" class="lemma-anchor a" ></a>
+</div><div class="album-list">
+<div class="header">
+<span class="title">词条图册</span>
+<a class="more-link" href="/pic/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711?fr=lemma" target="_blank" nslog-type="10000204">更多图册<em></em></a>
+</div>
+<div class="scroller">
+<div class="list">
+</div>
+</div>
+<div class="footer">
+</div>
+</div>
+<div class="tashuo-bottom" id="tashuo_bottom">
+<div class="tashuo-bottom-title-essence">
+<img src="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/tashuo/img/ta-logo-blue_6da9967.png" alt="">
+<span>解读词条背后的知识</span>
+</div>
+<div class="tashuo-single J-item" data-tashuoId="5936ecdc319edfa02c407aff">
+<div class="tashuo-author">
+<a href="/tashuo/authorcenter?authorId=0c49bf38f5da401ceb204421" target="_blank">
+<div class="ta-author-area"><span><img src="https://imgsa.baidu.com/baike/pic/item/3b292df5e0fe9925c7304f433fa85edf8db171e0.jpg" /></span></div>
+<div class="ta-author-slogan-area">
+<strong>韦玮</strong>
+<span>企业家，资深IT讲师/作家</span>
+</div>
+</a>
+</div>
+<div class="tashuo-content">
+<div class="tashuo-content-essence" style="width:780px; margin-left:0">
+<p class="title"><a href="/tashuo/browse/content?id=5936ecdc319edfa02c407aff&lemmaId=&fromLemmaModule=pcBottom" target="_blank">Python网络爬虫学习路线解读</a>
+</p>
+<p class="abstract">
+<a href="/tashuo/browse/content?id=5936ecdc319edfa02c407aff&lemmaId=&fromLemmaModule=pcBottom" target="_blank">
+随着大数据时代的到来，人们对数据资源的需求越来越多，而爬虫是一种很好的自动采集数据的手段。那么，如何才能精通Python网络爬虫呢？学习Python网络爬虫的路线应该如何进行呢？在此为大家具体进行介绍。1、选择一款合适的编程语言事实上，Python、PHP、JAVA等常见的...</a>
+</p>
+<div class="tashuo-operator">
+<span class="tashuo-publish-date">2017-09-18</span><span class="tashuo-like J-like " data-isvote="0"><i></i><strong class="J-number">349</strong></span>
+<span class="tashuo-view"><i>阅读</i><strong>13875</strong></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<dl class="lemma-reference collapse nslog-area log-set-param" data-nslog-type="2" log-set-param="ext_reference">
+<dt class="reference-title">参考资料</dt>
+<dd class="reference-list-wrap">
+<ul class="reference-list">
+<li class="reference-item reference-item--type2 " id="reference-[1]-284853-wrap">
+<span class="index">1.</span>
+<a class="gotop anchor"  name="refIndex_1_284853" id="refIndex_1_284853" title="向上跳转" href="#ref_[1]_284853">&nbsp;&nbsp;</a>
+<span>孙立伟, 何国辉, 吴礼发</span><span class="text">．网络爬虫技术的研究</span><span>：电脑知识与技术</span><span>，2010</span></li></ul>
+</dd>
+</dl>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+<a target="_blank" href="/wikitag/taglist?tagId=76607">科学百科信息科学分类</a>
+</span>
+，<span class="taglist">
+软件
+</span>
+，<span class="taglist">
+科技产品
+</span>
+，<span class="taglist">
+科学
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="tashuo-right" id="tashuo_right">
+<div class="tashuo-right-content-essence">
+<div class="J-items">
+</div>
+</div>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike#gallary" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd" data-lemmaId="5162711" data-lemmaTitle="网络爬虫"></div><div class="lemmaWgt-sideRecommend">
+<a name="zhixinWrap" class="qnAnchor"></a>
+<div class="zhixin-box" id="zhixinWrap" data-source="" data-newLemmaId="5162711">
+</div>
+<form id="zhixinErrorForm" class="hidden" action="https://sp2.baidu.com/-uV1bjeh1BF3odCf/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId" name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none" frameborder="0"></iframe>
+</div>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightBigAd">
+</div><div id="side-auth">
+<div id="authEdit" class="side-box">
+<dl>
+<dt class="sidetitle">权威合作编辑</dt>
+<dd class="side-auth-content">
+<div class="side-auth-img">
+<a href="http://www.cast.org.cn/" target="_blank" class="nslog:7075" id="authOrgRightEditPic">
+<img style="display: none" onload="this.style.width = '50px';this.style.display='';" src="https://baike.baidu.com/cms/rc/QQ%E5%9B%BE%E7%89%8720141121003618.jpg" alt="权威编辑" title="权威编辑"/>
+</a>
+</div>
+<div class="side-auth-info">
+<p class="auth-info-name">
+<a href="http://www.cast.org.cn/" nslog-type="7075" target="_blank" id="authOrgRightEdit">“科普中国”科学百科词条编写与应用工作项目</a>
+</p>
+<span id="authDetail">
+“科普中国”是为我国科普信息化建设塑造的全...
+</span>
+</div>
+<div class="clear"></div>
+</dd>
+<dd class="authVersion">
+<span style="">
+<a class="whatIs" align="absmiddle" href="javascript:void(0);"></a><a href=" http://baike.bdimg.com/cms/static/cooperation/content.pdf" target="_blank" nslog-type="36" class="link-toggle" id="whatIsAuthEdit">什么是权威编辑</a>
+</span>
+<span class="divisionLine"></span>
+<a href="/history/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711/112455146" class="nslog:37" target="_blank" id="authEditVersion">查看编辑版本</a>
+</dd>
+</dl>
+</div>
+<div id="authResource" class="side-box">
+<dl>
+<dt class="sidetitle">资源提供</dt>
+<dd class="side-auth-content">
+<div class="side-auth-img">
+<a href="http://www.cie-info.org.cn/" target="_blank" nslog-type="7096">
+<img style="display: none" onload="this.style.width = '50px';this.style.display='';" src="https://bkssl.bdimg.com/cms/static/cie-logo.jpg" alt="资源合作" title="资源合作"/>
+</a>
+</div>
+<div class="side-auth-info">
+<div class="auth-info-name">
+<a href="http://www.cie-info.org.cn/" class="nslog:7096" target="_blank">中国电子学会</a>
+</div>
+<p>中国电子学会（Chinese Instit...</p>
+<p>提供资源类型：<span style="color: #555555;">内容</span></p>
+</div>
+</dd>
+<dd class="authVersion">
+<span>
+<a class="whatIs" align="absmiddle" href="javascript:void(0);"></a>
+<a href=" http://baike.bdimg.com/cms/static/cooperation/content.pdf" target="_blank" nslog-type="3024" class="link-toggle">什么是资源合作</a>
+</span>
+</dd>
+</dl>
+</div>
+</div>
+<dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description ">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：66次<a href="/historylist/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/5162711" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>
+<span class="latest-title">最近更新：</span>
+<span class="latest-content">
+<a class="show-userCard" data-uid="11995809" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/w_ou"
+                     nslog-type="1022">w_ou</a><span class="j-modified-time" style="display:none">（2018-07-19）</span>
+</span>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#1" class="title-link">
+<span class="text">
+<span class="title-index">1</span>
+<span class="title-link" nslog-type="10002802">产生背景</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#2" class="title-link">
+<span class="text">
+<span class="title-index">2</span>
+<span class="title-link" nslog-type="10002802">面临的问题</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#3" class="title-link">
+<span class="text">
+<span class="title-index">3</span>
+<span class="title-link" nslog-type="10002802">分类</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#4" class="title-link">
+<span class="text">
+<span class="title-index">4</span>
+<span class="title-link" nslog-type="10002802">抓取目标分类</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#5" class="title-link">
+<span class="text">
+<span class="title-index">5</span>
+<span class="title-link" nslog-type="10002802">网页搜索策略</span>
+</span>
+</a>
+</dt>
+<dd class="catalog-title level2">
+<a href="#5_1" class="title-link">
+<span class="text">
+<span class="title-index">5.1</span>
+<span class="title-link" nslog-type="10002802">广度优先搜索</span>
+</span>
+</a>
+</dd>
+<dd class="catalog-title level2">
+<a href="#5_2" class="title-link">
+<span class="text">
+<span class="title-index">5.2</span>
+<span class="title-link" nslog-type="10002802">最佳优先搜索</span>
+</span>
+</a>
+</dd>
+<dd class="catalog-title level2">
+<a href="#5_3" class="title-link">
+<span class="text">
+<span class="title-index">5.3</span>
+<span class="title-link" nslog-type="10002802">深度优先搜索</span>
+</span>
+</a>
+</dd>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#6" class="title-link">
+<span class="text">
+<span class="title-index">6</span>
+<span class="title-link" nslog-type="10002802">网页分析算法</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#7" class="title-link">
+<span class="text">
+<span class="title-index">7</span>
+<span class="title-link" nslog-type="10002802">补充</span>
+</span>
+</a>
+</dt>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);" nslog-type="10002803"></a>
+<a class="gotop-button" href="javascript:void(0);" nslog-type="10002804"></a>
+</div>
+</div>
+<div id="side_box_fengchao" class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div id="side_box_unionAd" class="unionAd side-box">
+<div class="union-content"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="fc-guess-like new" id="fc_guess_like_new">
+<span class="logo-du">
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+</span>
+<h6>猜你关注</h6>
+<ul class="cmn-clearfix">
+</ul>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E6%9C%AC%E4%BA%BA%E8%AF%8D%E6%9D%A1%E7%BC%96%E8%BE%91%E6%9C%8D%E5%8A%A1/22442459?bk_fr=pcFooter">本人编辑</a><img src="https://bkssl.bdimg.com/static/wiki-common/widget/component/footer/img/new-icon_a64774d.png" class="new-icon" alt="new"></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a id="J-bk-feedback-query" data-lemma="网络爬虫" href="javascript:void(0);" nslog-type="10070001">内容质疑</a></div>
+<div><a target="_blank" href="http://zhiqiu.baidu.com/baike/passport/html/baikechat.html" nslog-type="10000003">在线客服</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">官方贴吧</a></div>
+<div><a id="J-bk-feedback-main" href="javascript:void(0);">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://help.baidu.com/newadd?prod_id=10&category=1">举报不良信息</a></div>
+<div><a target="_blank" href="http://help.baidu.com/newadd?prod_id=10&category=2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://help.baidu.com/newadd?prod_id=10&category=6">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://help.baidu.com/newadd?prod_id=10&category=5">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2019&nbsp;Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=89&id=1637" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_id=10&class=690&id=1001779" target="_blank">隐私政策</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a>&nbsp;|&nbsp;<span>京ICP证030173号&nbsp;</span><img class="copyright-img" width="13" height="16" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/copy_rignt_24.png"></div>
+<p class="recordcode"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000001" target="_blank"><i class="icon-police"></i>京公网安备11000002000001号</a></p>
+</div>
+
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout cmn-clearfix">
+<div class="wgt-searchbar wgt-searchbar-new wgt-searchbar-simple cmn-clearfix ">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" nslog="normal" nslog-type="10080015" name="word" type="text" autocomplete="off" autocorrect="off" value="网络爬虫" /><button id="search" nslog="normal" nslog-type="10080013" type="button">进入词条</button>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div class="sug"></div>
+<li class="extra">
+<span id="clear" style="margin-right:8px;">清除历史记录</span><span id="close" nslog="normal" nslog-type="10080016">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-hollow"></em>编辑</a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_star-hollow"></em><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_star-solid"></em>收藏</a>
+<a class="toolButtons-vote button top-vote" href="javascript:;" nslog-type="10010003"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_zan-hollow"></em><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_zan-solid"></em><span class="j-tool-btn-vote-num">赞</span></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" nslog-type="10010008" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="new-bdsharebuttonbox new-side-share" id="side-share">
+<span class="title">分享</span>
+<div class="side-border">
+<div class="triangle"></div>
+<a class="share-link bds_qzone"  href="javascript:void(0);" nslog-type="10060101">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qzone"></em>
+</a>
+<a class="share-link bds_tsina" href="javascript:void(0);" nslog-type="10060301">
+<em class="cmn-icon cmn-icons cmn-icons_logo-sina-weibo"></em>
+</a>
+<a class="bds_wechat"  href="javascript:void(0);" nslog-type="10060001">
+<em class="cmn-icon cmn-icons cmn-icons_logo-wechat"></em>
+</a>
+<a class="share-link bds_tqq"  href="javascript:void(0);" nslog-type="10060201">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qq"></em>
+</a>
+</div>
+</div>
+<div class="qrcode-wrapper" id="layer" style="display: none">
+<div class="bd_weixin_popup_header">
+<em class="cmn-icon cmn-icons cmn-icons_close"></em>
+<span>分享到微信朋友圈</span>
+</div>
+<div id="wechat-qrcode-img"></div>
+<div class="bd_weixin_popup_footer">打开微信“扫一扫”即可将网页分享至朋友圈</div>
+</div>
+<div></div><div></div>
+
+</body><script type="text/javascript" src="https://bkssl.bdimg.com/static/wiki-common/js/mod_4302fe0.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_18f1b51.js","pkg":"wiki-lemma:p5","deps":["wiki-common:widget/component/nslog/nslog.js"]},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_459492a.js","pkg":"wiki-lemma:p5"},"wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js":{"url":"https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip_53efc29.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/lib/jsmart/jsmart.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p5":{"url":"https://bkssl.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_853c311.js"}}});</script><script type="text/javascript" src="https://bkssl.bdimg.com/static/wiki-common/pkg/wiki-common-base_c45f568.js"></script>
+<script type="text/javascript" src="https://bkssl.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ff28b8c.js"></script>
+<script type="text/javascript" src="https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_58e6342.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery'),
+    userbar = require('wiki-common:widget/component/userbar-n/userbar-n');
+    
+  userbar.buildUserbar($('#j-wgt-userbar'), null);
+}();
+!function(){  require('wiki-common:widget/component/headTabBar/headTabBar');
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery'),
+      initSearchbar = require('wiki-common:widget/component/searchbar-n/searchbar');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var cookie = require('wiki-common:widget/util/cookie');
+    if (!cookie.get('baikedeclare')) {
+        $('#J-declare-wrap').css('display', 'block');
+    }
+    $('#J-declare-close').on('click', function () {
+        // 用户关闭后，不再显示，这里暂设过期时间为1年
+        cookie.set('baikedeclare', 'showed', {
+            expires: 365 * 60 * 60 * 24 * 1000,
+            path: '/'
+        });
+        $('#J-declare-wrap').css('display', 'none');
+    });
+}();
+!function(){var $ = require('wiki-common:widget/lib/jquery/jquery');
+
+var timer = '';
+
+$('.wgt-navbar').on('mouseenter', 'dl', function() {
+  clearTimeout(timer);
+  timer = setTimeout(function() {
+    $('.wgt-navbar').addClass('wgt-navbar-hover');
+  }, 300);
+}).on('mouseleave', function() {
+  clearTimeout(timer);
+  $('.wgt-navbar').removeClass('wgt-navbar-hover');
+}).on('click', 'a', function() {
+  clearTimeout(timer);
+  $('.wgt-navbar').removeClass('wgt-navbar-hover');
+});
+}();
+!function(){        var s = require('wiki-lemma:widget/lemma_content/configModule/secondsKnow/secondsKnow');
+        s.initialize({"secondsKnow":[{"videoSrc":{"type":"baikePlayer","secondKind":"1","secondId":413260,"mid":"mda-O9YuwkNvb4QWwVgf","cover":"https:\/\/gss0.bdstatic.com\/94o3dSag_xI4khGkpoWK1HF6hhy\/baike\/whfpf%3D685%2C390%2C0\/sign=5a0ebee9bb7eca8012506aa7f71ea1e5\/a8014c086e061d95e2642ff270f40ad163d9cade.jpg","cover_small":"https:\/\/gss0.bdstatic.com\/94o3dSag_xI4khGkpoWK1HF6hhy\/baike\/whfpf%3D280%2C150%2C0\/sign=deccf8c3bd003af34def8f205317f464\/a8014c086e061d95e2642ff270f40ad163d9cade.jpg"},"coverSrc":"a8014c086e061d95e2642ff270f40ad163d9cade","title":"\u79d1\u666e\u4e2d\u56fd\u00b7\u79d1\u5b66\u767e\u79d1\uff1a\u8718\u86db","mediaId":"mda-O9YuwkNvb4QWwVgf","secondId":413260}],"pageBg":null,"type":"normal","orgId":75,"lemmaId":5162711,"lemmaTitle":"\u7f51\u7edc\u722c\u866b"});
+    }();
+!function(){                var $ = require('wiki-common:widget/lib/jquery/jquery');
+                var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+                // 展现策略
+                rightCheck.editView('5162711', function(res) {
+                    if (!res.errno) {
+                        if (res.data.edit) {
+                            $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                            $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                        }
+                    } else {
+                        if ('1') {
+                            $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                            $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                        }
+                    }
+                });
+                require('wiki-lemma:widget/basicElement/addSub/addSub.js')({                    lemmaId: '5162711',                    lemmaTitle:"\u7f51\u7edc\u722c\u866b",                    lemmaDesc:null,                    versionId: '130445411',                    subLemmaId: '284853'                });
+            }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+        // 展现策略
+        rightCheck.editView('5162711', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){    var nslog = require('wiki-common:widget/component/nslog/nslog');
+	require.async(["wiki-lemma:widget/basicElement/collect/collect"],function(collect){
+		collect({
+            newLemmaId:"5162711",
+			lemmaId:"284853",
+			subLemmaId:"284853"
+		});
+	});
+}();
+!function(){    require.async(["wiki-lemma:widget/basicElement/topShare/topShare"],function(topShare){
+        topShare({
+            newLemmaId: '5162711'
+        });
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+    var nsLog = require('wiki-common:widget/component/nslog/nslog');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog");
+    
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+                // 编辑和申请本人实名验证保证同一行展示
+                if ($('.lemmaWgt-lemmaTitle .personal').length > 0) {
+                  if ($('.lemmaWgt-lemmaTitle .edit-lemma').offset().left > $('.lemmaWgt-lemmaTitle .personal').offset().left) {
+                    $('.lemmaWgt-lemmaTitle .edit-lemma').before('<br/><br/>');
+                  }
+                }
+            } else {
+                nsLog('10003104');              
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+                // 锁定和申请本人实名验证保证同一行展示
+                if ($('.lemmaWgt-lemmaTitle .personal').length > 0) {
+                  if ($('.lemmaWgt-lemmaTitle .lock-lemma').offset().left > $('.lemmaWgt-lemmaTitle .personal').offset().left) {
+                    $('.lemmaWgt-lemmaTitle .lock-lemma').before('<br/><br/>');
+                  }
+                }
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+                // 编辑和申请本人实名验证保证同一行展示
+                if ($('.lemmaWgt-lemmaTitle .personal').length > 0) {
+                  if ($('.lemmaWgt-lemmaTitle .edit-lemma').offset().left > $('.lemmaWgt-lemmaTitle .personal').offset().left) {
+                    $('.lemmaWgt-lemmaTitle .edit-lemma').before('<br/><br/>');
+                  }
+                }
+            } else {
+                nsLog('10003104');  
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+                // 锁定和申请本人实名验证保证同一行展示
+                if ($('.lemmaWgt-lemmaTitle .personal').length > 0) {
+                  if ($('.lemmaWgt-lemmaTitle .lock-lemma').offset().left > $('.lemmaWgt-lemmaTitle .personal').offset().left) {
+                    $('.lemmaWgt-lemmaTitle .lock-lemma').before('<br/><br/>');
+                  }
+                }
+            }
+        }
+    });
+
+    var canDiscussion = $('.j-discussion-link').length > 0 ? true : false;
+    if (canDiscussion) {
+        // 锁定跳转
+        $('body').on('click', '.lock-lemma', function () {
+            var me = $(this);
+            var content = '<div style="text-align: left;width: 528px">'
+                + '<h2 style="font-size: 20px;color: #333;line-height: 26px;margin-bottom: 20px;">' 
+                + '词条锁定，暂时无法编辑</h2>' 
+                + '<p style="font-size: 16px;color: #333;line-height: 26px;">'
+                + '亲爱的用户，词条存在争议或词条内容较完善都可能被锁定（'
+                + '<a href="/view/10812319.htm" target="_blank">查看详情</a>）。</p>'
+                + '<p style="font-size: 16px;color: #333;line-height: 26px;">'
+                + '如果你认为锁定词条内容存在问题需要修改，可进行以下操作：</p></div>';
+            new Dialog({
+                title: '编辑提示',
+                content: content,
+                btns: [
+                    {
+                        text: '<span style="font-size: 14px">参与词条讨论，反馈词条问题</span>',
+                        key: 'discussion'
+                    }
+                ],
+                onBtnClick: function(btnKey){
+                    if (btnKey === 'discussion') {
+                        window.location.href = '/planet/talk?lemmaId=5162711&category=1';
+                    }
+                }
+            }).show();
+        });
+        // 获取讨论数
+        $.get('/discussion/api/getdiscussioncount?lemmaId=5162711', function (res) {
+            if (res && res.errno === 0 && res.data.discussionCount > 0) {
+                var numText = res.data.discussionCount <= 99 ? res.data.discussionCount : '99+';
+                $('.j-discussion-link .num').text(numText).show();
+            }
+        });
+        $('.lemmaWgt-lemmaTitle .j-discussion-link').on('click', function () {
+            $(this).find('.num').remove();
+        });
+    }
+}();
+!function(){	require('wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var nslog = require('wiki-common:widget/component/nslog/nslog');
+    nslog(10002701);
+    $('.lemmaWgt-lemmaCatalog a').on('click', function () {
+           nslog(10002702);
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+
+    // 展现策略
+    rightCheck.editView('5162711', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){	require.async(["wiki-common:widget/lib/jquery/jquery","wiki-lemma:widget/lemma_content/mainContent/albumList/albumList","wiki-common:widget/component/nslog/nslog"],function($,AlbumList,nslog){
+		var list=new AlbumList({
+			newLemmaId:"5162711",
+			lemmaTitle:"网络爬虫",
+			lemmaId:"284853",
+			subLemmaId:"284853",
+			data:[{"coverpic":"d1160924ab18972bdf7ef873eecd7b899f510ac6","width":658,"height":433,"desc":"\u8bcd\u6761\u56fe\u7247","total":6,"coverurl":"https:\/\/gss3.bdstatic.com\/-Po3dSag_xI4khGkpoWK1HF6hhy\/baike\/s%3D235\/sign=f6668cbd9f0a304e5622a7f9e4c9a7c3\/d1160924ab18972bdf7ef873eecd7b899f510ac6.jpg"}]
+		});
+		!!window.ScriptLazyLoad && window.ScriptLazyLoad.regist({
+			dom:$('.album-list'),
+			loadFunc:function(){
+				list.load();
+				nslog(1258);
+			},
+			distance:500
+		});
+	});
+}();
+!function(){    require.async(["wiki-lemma:widget/lemma_content/mainContent/tashuo/tashuo"],function(init){
+        init();
+    });
+}();
+!function(){		require.async(["wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReference","wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip"],function(Reference,ReferenceTip){
+			new Reference({
+				subLemmaId:"284853"
+			});
+			new ReferenceTip({
+				subLemmaId:"5162711",
+				lemmaTitle:"网络爬虫",
+				reference:[{"type":"2","author":"\u5b59\u7acb\u4f1f, \u4f55\u56fd\u8f89, \u5434\u793c\u53d1","title":"\u7f51\u7edc\u722c\u866b\u6280\u672f\u7684\u7814\u7a76","publisher":"\u7535\u8111\u77e5\u8bc6\u4e0e\u6280\u672f","place":"","publishYear":"2010","refPage":"","index":1}]
+			});
+		});
+	}();
+!function(){        require.async(["wiki-common:widget/lib/jquery/jquery"],function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/rightTashuo/rightTashuo"],function(init){
+        init({
+            lemmaId: 5162711,
+            lemmaTitle: '网络爬虫'
+        });
+    });
+}();
+!function(){        require('wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin')(
+            5162711,
+            '网络爬虫'
+        );
+    }();
+!function(){    require.async(["wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics"],function(init){
+        init({
+            newLemmaIdEnc:"e5a2382677062d0f7aac376c"
+        });
+    });
+}();
+!function(){	require.async(["wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog"],function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(["wiki-lemma:widget/promotion/fengchao/fengchao","wiki-lemma:widget/promotion/unionAd/unionAd"], function (init, unionAd) {
+            init({
+                newLemmaId: "5162711",
+                lemmaTitle: "网络爬虫",
+                encodeLemmaTitle: "%CD%F8%C2%E7%C5%C0%B3%E6",
+                adManager: {"wapRelatedBusiness":1}
+            }, {
+                errFn: unionAd,
+                dom: $('#side_box_unionAd')
+            });
+        });
+    }();
+!function(){        require.async(['wiki-lemma:widget/promotion/guessLike/guessLike'], function (app) {
+            app.init({
+                lemmaTitle: '网络爬虫',
+                adManager: {"wapRelatedBusiness":1}
+            });
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin');
+    var unameFiller = require('wiki-common:widget/component/unameFiller/unameFiller');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck');
+    var nsLog = require('wiki-common:widget/component/nslog/nslog');
+
+            var isEnterprise = false;
+        var enterpriseOwnerUserId = 0;
+    
+    var userId = 0;
+    var editUrl = '/edit/' + encodeURIComponent('网络爬虫') + '/' + '5162711';
+    var pgcUrl = '/enterprise/editpgc?lemmaId=5162711';
+    var canDiscussion = $('.j-discussion-link').length > 0 ? true : false;
+
+    userLogin.regist({
+        onLogin: function(user) {
+            userId = user ? user.uid : 0;
+        }
+    });
+
+    function gotoEdit(url, isMidNight) {
+        if (isMidNight) {
+            Dialog.alert({
+                title: '编辑提示',
+                subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                onConfirm: function() {
+                    window.location.href = url;
+                }
+            });
+        } else {
+            window.location.href = url;
+        }    
+    }
+
+    function showChoseEditDialog(pgcCallback, ugcCallback) {
+        new Dialog({
+            title: '编辑提示',
+            subMsg: '<p>您已开通企业百科服务，推荐您直接编辑“官方资料”，官方资料仅限企业百科绑定的百科账号修改，其他用户账号不可修改。</p><p>如果您想修改其他网友编辑的普通词条内容，请注意遵守百科百科编辑规则。<p>',
+            btns: [{
+            key: 'pgc',
+            text: '编辑官方资料'
+            }, {
+            style: 'white',
+            text: '修改普通词条',
+            key: 'ugc'
+            }],
+            onBtnClick: function(btnKey){
+                if (btnKey === 'pgc') {
+                    pgcCallback && pgcCallback();
+                } else if (btnKey === 'ugc') {
+                    ugcCallback && ugcCallback();
+                }
+            }
+        }).show();
+    }
+
+    function checkUserLegal(res) {
+        var legal = false;
+        switch (res.errno) {
+            case 100001:
+                nsLog('10003106');
+                userLogin.showLoginPop();
+                break;
+            case 100006:
+                unameFiller.show();
+                break;
+            default:
+                legal = true;
+        }
+        return true;
+    }
+
+    function checkUgc(res, url) {
+        if (res.errno) {
+            switch (res.errno) {
+                case 100005:
+                    alert('对不起，您目前被封禁');
+                    break;
+                case 110001:
+                    alert('对不起，该词条被锁定');
+                    break;
+                case 110007:
+                    alert('对不起，消歧页无法编辑');
+                    break;
+                case 110005:
+                    nsLog('10003101');
+                    var content = '<div style="text-align: left;width: 490px">'
+                        + '<h2 style="font-size: 20px;color: #333;line-height: 26px;margin-top: 10px;margin-bottom: 20px;">' 
+                        + '对不起，你暂时没有权限编辑该词条</h2>' 
+                        + '<p style="font-size: 16px;color: #333;line-height: 26px;margin-bottom: 17px;">'
+                        + '亲爱的用户，该词条内容已较完善，需百科等级达到4级且通过率达85%才可编辑哦。</p>'
+                        + '<p style="font-size: 16px;color: #333">你当前百科等级为'
+                        + res.data.userInfo.level + '级、通过率'
+                        + res.data.userInfo.passRatio + '%，可进行以下操作：</p></div>';
+                    var btns = [
+                        {
+                            key: 'join',
+                            text: '<span style="font-size: 14px;text-align: center;vertical-align: middle;display: table-cell;">反馈词条问题，参与百科共建</span>'
+                        },
+                        {
+                            text: '<span style="font-size: 14px;text-align: center;vertical-align: middle;display: table-cell;">参加成长任务，提升编辑权限</span>',
+                            key: 'task'
+                        }
+                    ];
+                    if (canDiscussion) {
+                        btns = [
+                            {
+                                key: 'discussion',
+                                text: '<span style="font-size: 14px">参与词条讨论，反馈词条问题</span>'
+                            },
+                            {
+                                text: '<span style="font-size: 14px">参加成长任务，提升编辑权限</span>',
+                                key: 'task'
+                            }
+                        ];
+                    }
+                    new Dialog({
+                        title: '编辑提示',
+                        content: content,
+                        btns: btns,
+                        onBtnClick: function(btnKey){
+                            if (btnKey === 'discussion') {
+                                window.location.href = '/planet/talk?lemmaId=5162711&category=1';
+                            } else if (btnKey === 'task') {
+                                window.location.href = '/usercenter#guide';
+                            } else if (btnKey === 'join') {
+                                window.location.href = '/feedback';
+                            }
+                        }
+                    }).show();
+                    break;
+                case 110008:
+                    nsLog('10003102');
+                    var content = '<div style="text-align: left;width: 490px">'
+                        + '<h2 style="font-size: 20px;color: #333;line-height: 26px;margin-bottom: 20px;margin-top: 10px;">' 
+                        + '对不起，你暂时没有权限编辑该词条</h2>' 
+                        + '<p style="font-size: 16px;color: #333;line-height: 26px;margin-bottom: 17px;">'
+                        + '亲爱的用户，该词条内容已较完善，需百科等级达到6级且通过率达85%才可编辑哦。</p>'
+                        + '<p style="font-size: 16px;color: #333">你当前百科等级为'
+                        + res.data.userInfo.level + '级、通过率'
+                        + res.data.userInfo.passRatio + '%，可进行以下操作：</p></div>';
+                    var btns = [
+                        {
+                            key: 'join',
+                            text: '<span style="font-size: 14px;text-align: center;vertical-align: middle;display: table-cell;">反馈词条问题，参与百科共建</span>'
+                        },
+                        {
+                            text: '<span style="font-size: 14px;text-align: center;vertical-align: middle;display: table-cell;">参加成长任务，提升编辑权限</span>',
+                            key: 'task'
+                        }
+                    ];
+                    if (canDiscussion) {
+                        btns = [
+                            {
+                                key: 'discussion',
+                                text: '<span style="font-size: 14px">参与词条讨论，反馈词条问题</span>'
+                            },
+                            {
+                                text: '<span style="font-size: 14px">参加成长任务，提升编辑权限</span>',
+                                key: 'task'
+                            }
+                        ];
+                    }
+                    new Dialog({
+                        title: '编辑提示',
+                        content: content,
+                        btns: btns,
+                        onBtnClick: function(btnKey){
+                            if (btnKey === 'discussion') {
+                                window.location.href = '/planet/talk?lemmaId=5162711&category=1';
+                            } else if (btnKey === 'task') {
+                                window.location.href = '/usercenter#guide';
+                            } else if (btnKey === 'join') {
+                                window.location.href = '/feedback';
+                            }
+                        }
+                    }).show();
+                    break;
+                case 470001:
+                    alert('系统错误，请刷新重试');
+                    break;
+                case 110003:
+                    nsLog('10003103');
+                    Dialog.alert({
+                        title: '编辑提示',
+                        subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                    });
+                    break;
+            }
+        } else {
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+            gotoEdit(url, res.data.notice.isMidNight);
+        }
+    }
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        nsLog('10003100');
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('5162711', '网络爬虫', '网络爬虫', '130445411', '', function(res) {
+            if (!checkUserLegal(res)) {
+                return;
+            }
+            if (isEnterprise && enterpriseOwnerUserId === userId) {
+                showChoseEditDialog(function() {
+                    location.href = pgcUrl;
+                }, function() {
+                    checkUgc(res, url);
+                });
+            } else {
+                checkUgc(res, url);
+            }
+        });
+    });
+}();
+!function(){  require.async(["wiki-common:widget/lib/jquery/jquery","wiki-common:widget/component/footer/footer_feedback"], function($, feedback){
+    feedback({el: '#J-bk-feedback-main',
+      proData: {
+        "extend_feedback_channel": 33468
+      }
+    });
+    feedback({el: '#J-bk-feedback-query', config: {
+        appid: 215645,
+        productLine: 20184,
+        needContactWay: false,
+        issuePlaceholder: '亲爱的百度百科用户，请在此填写您的质疑内容及原因哦～'
+      },
+      proData: {
+        "kw": $('#J-bk-feedback-query').data('lemma')
+      }
+    });
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery'),
+      initSearchbar = require('wiki-common:widget/component/searchbar-n/searchbar');  
+    initSearchbar($('.wgt-searchbar-simple'));
+  }();
+!function(){    require.async(["wiki-lemma:widget/tools/searchHeader/toolButtons-n/toolButtons"],function(init){
+        init({
+            lemmaId:"284853",
+            subLemmaId:"284853",
+            newLemmaId:"5162711"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons-n/userInfo')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery'),
+      animation = require('wiki-common:widget/util/animation'),
+      nslog = require('wiki-common:widget/component/nslog/nslog'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                    nslog(10010007);
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/newSideShare/qzopensl');
+    require.async(["wiki-lemma:widget/tools/newSideShare/taskSideShare"],function(taskShare){
+        taskShare.init({
+            title: '网络爬虫',
+            desc: "\u7f51\u7edc\u722c\u866b\uff08\u53c8\u88ab\u79f0\u4e3a\u7f51\u9875\u8718\u86db\uff0c\u7f51\u7edc\u673a\u5668\u4eba\uff0c\u5728FOAF\u793e\u533a\u4e2d\u95f4\uff0c\u66f4\u7ecf\u5e38\u7684\u79f0\u4e3a\u7f51\u9875\u8ffd\u9010\u8005\uff09\uff0c\u662f\u4e00\u79cd\u6309\u7167\u4e00\u5b9a\u7684\u89c4\u5219\uff0c\u81ea\u52a8\u5730\u6293\u53d6\u4e07\u7ef4\u7f51\u4fe1\u606f\u7684\u7a0b\u5e8f\u6216\u8005\u811a\u672c\u3002\u53e6\u5916\u4e00\u4e9b\u4e0d\u5e38\u4f7f\u7528\u7684\u540d\u5b57\u8fd8\u6709\u8682\u8681\u3001\u81ea\u52a8\u7d22\u5f15\u3001\u6a21\u62df\u7a0b\u5e8f\u6216\u8005\u8815\u866b\u3002",
+            pic: '',
+            url: '',
+            qqPic: '',
+            newLemmaId: '5162711',
+            lemmaTitle: '网络爬虫'
+        });
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery');
+    var nslog = require("wiki-common:widget/component/nslog/nslog");
+    var testElem = require('wiki-common:widget/component/testElem/testElem');
+    var cmsModuleLoader = require('wiki-common:widget/component/cmsModuleLoader/cmsModuleLoader');
+
+    function requireAsync() {
+        require.async(['wiki-lemma:widget/tools/announcement/announcement']);
+    }
+
+    cmsModuleLoader('/api/wikiui/getlemmaconfig', [{
+        name: 'announcement',
+        script: 'wiki-lemma:widget/tools/announcement/announcement.js'
+    }]);
+
+    require.async(["wiki-lemma:widget/tools/lazyLoad/lazyLoad"], function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog','wiki-common:widget/lib/jquery/jquery'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "284853",
+            newLemmaId: "5162711",
+            subLemmaId: "284853",
+            lemmaTitle: "网络爬虫"
+        });
+
+        // 词条页 pv
+        nslog(9322);
+
+        // 新版头部pv（小流量）
+        if ($('.pc-header-new').length > 0) {
+            nslog(9069);
+        }
+
+        // 链接点击 pv
+        var lemmaPageRegExp = new RegExp(/\/subview\/\d+|\/view\/\d+|\/item\//i);
+        $('body').on('mousedown', 'a', function() {
+            var href = $(this).attr('href');
+            if (href && href.indexOf('/') >= 0 && href.indexOf('#') !== 0) {
+                // 链接点击 pv
+                nslog(10000001);
+                if (lemmaPageRegExp.test(href)) {
+                    // 词条页链接点击 pv
+                    nslog(10000002, window.location.href, {
+                        targetTitle: $(this).text()
+                    });
+                }
+            }
+        });
+
+        /****** 词条页站内流转需求统计 start ******/
+        (function () {
+            // 各种统计配置
+            var circulationLinkCfg = {
+                innerLink: [ // 内链
+                    '.para',
+                    '.lemmaWgt-baseInfo-simple-largeMovie',
+                    '.lemmaWgt-baseInfo-simple-largeStar',
+                    '.basic-info .basicInfo-block',
+                    '.lemma-summary',
+                    '.lemmaWgt-lemmaSummary',
+                    '.view-tip-panel',
+                    '.horizontal-module',
+                    '.lemmaWgt-roleIntroduction',
+                    '.dramaSeries .dramaSerialList',
+                    '.module-music',
+                    '.table-view',
+                    '[log-set-param="table_view"]',
+                    '.list-module',
+                    '.cell-module',
+                    '.baseBox .dl-baseinfo', // 配置后台字段
+                    '.pvBtn-box .leadPVBtnWrapper',
+                    '.drama-actor',
+                    '#staffList',
+                    '.starMovieAndTvplay',
+                    '.main_tab:not(.main_tab-defaultTab)' // 除去词条tab外的tab
+                ],
+                relationTable: '.rs-container-foot', // 关系表
+                peopleRelation: '.star-info-block.relations, .lemmaWgt-focusAndRelation', // 人物关系（明星+普通）
+                moduleActors: '.featureBaseInfo .actors, .lemmaWgt-majorActors', // 主要演员、嘉宾、主持人
+                moduleWorks: '.featureBaseInfo .works, .large-feature .works', // 代表作品
+                moduleQuarterly: '.featureBaseInfo .po_quarterly, .mian_quarterly', // 分季介绍
+                rankStar: '.rank-list.stars-rank', // 明星榜
+                rankDrama: '.drama-rank-list', // 电视剧榜
+                specialTopic: '.special-topic', // 专题模块
+                modDetailTable: '#modDetailTable', // 关系表出图
+                chuizhitu: '.chuizhitu', // 垂直化模块
+                polysemantList: '.polysemantList-wrapper' // 义项切换
+            };
+            /****** 连接统计 ******/
+            function clickNslogFn() {
+                for (var k in circulationLinkCfg) {
+                    if (k === 'innerLink') {
+                        // 词条内链到词条页
+                        var tempArr = circulationLinkCfg[k];
+                        for (var i = 0, l = tempArr.length; i < l; i++) {
+                            tempArr[i] += ' a';
+                        }
+                        var sSelector = tempArr.join(', ');
+
+                        $('body').on('mousedown', sSelector, {key: k},function(e) {
+                            var key = e.data.key;
+                            var href = $(this).attr('href');
+                            var tar = $(this).attr('target') || '';
+                            if (href && href.indexOf('/') >= 0 && href.indexOf('#') !== 0
+                            && tar === '_blank' && lemmaPageRegExp.test(href)) {
+                                // 词条页普通内链点击 pv
+                                nslog(10000004, null ,{division: key});
+                            }
+                        });
+                    } else {
+                        // 模块到词条页链接
+                        $(circulationLinkCfg[k]).on('mousedown', 'a', {key: k}, function (e) {
+                            var key = e.data.key;
+                            var href = $(this).attr('href');
+                            if (href && href.indexOf('#') !== 0 && lemmaPageRegExp.test(href)) {
+                                // 词条页配置模块链接点击 pv
+                                nslog(10000004, null, {division: key});
+                            }
+                        });
+                    }
+                }
+            }
+            // 发起统计请求
+            clickNslogFn();
+
+            /****** 各模块展现量pv ******/
+            function checkModuleIsShow() {
+                var result = [];
+                for (var k in circulationLinkCfg) {
+                    if (k !== 'innerLink' && k !== 'relationTable') {
+                        !!$(circulationLinkCfg[k]).html() && result.push(k);
+                    }
+                }
+                if (result.length > 0) {
+                    nslog(10000005, null, {showModules: result.join(',')});
+                }
+            }
+            checkModuleIsShow();
+
+        })();
+        /****** 词条页站内流转需求统计 end ******/
+
+    });
+
+    // 广告接入 wikiad 统一加载
+    // log 词条页广告被拦截情况（此处 log 请求行为）
+    nslog(70000101, window.location.href, {
+        api: 'lemma-ad',
+        action: 'request'
+    });
+    var tags = {"3":{"tagId":76607,"tagName":"\u79d1\u5b66\u767e\u79d1\u4fe1\u606f\u79d1\u5b66\u5206\u7c7b"},"0":{"tagId":0,"tagName":"\u8f6f\u4ef6"},"2":{"tagId":0,"tagName":"\u79d1\u6280\u4ea7\u54c1"},"1":{"tagId":0,"tagName":"\u79d1\u5b66"}};
+    var tagsArray = [];
+    for (var key in tags) {
+        tagsArray.push(tags[key].tagName);
+    }
+    $.ajax({
+        type: 'GET',
+        url: '/api/wikiad/getsquirrels',
+        data: {
+            lemmaId: 5162711,
+            tags: tagsArray.join()
+        },
+        cache: false,
+        dataType: 'JSON',
+        success: function (res) {
+            // log 词条页广告被拦截情况（此处 log 请求成功）
+            nslog(70000101, window.location.href, {
+                api: 'lemma-ad',
+                action: 'success'
+            });
+
+            if (!res.errno) {
+                if (res.data[5]) {
+                    require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd'], function(rightPreciseAd) {
+                        rightPreciseAd(res.data[5]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[5][0].adId,
+                            adTitle: res.data[5][0].name,
+                            adPos: 5
+                        });
+                    });
+                } else if (res.data[1]) {
+                                        require.async(['wiki-lemma:widget/promotion/vbaike/vbaike'], function(vbaike) {
+                        vbaike(res.data[1]);
+                        for(var i in res.data[1]) {
+                            nslog(10002201, location.href, {
+                                adId: res.data[1][i].adId,
+                                adTitle: res.data[1][i].name,
+                                adPos: 1
+                            });
+                        }
+                    });
+                                    }
+                if (res.data[9]) {
+                                        require.async(['wiki-lemma:widget/promotion/rightBigAd/rightBigAd'], function(rightBigAd) {
+                        rightBigAd(res.data[9]);
+                            nslog(10002201, location.href, {
+                                adId: res.data[9][0].adId,
+                                adTitle: res.data[9][0].name,
+                                adPos: 9
+                            });
+                    });
+                                    } else if(res.data[2]) {
+                    require.async(['wiki-lemma:widget/promotion/slide/slide'], function(slide) {
+                        slide(res.data[2]);
+                        for(var i in res.data[2]) {
+                            nslog(10002201, location.href, {
+                                adId: res.data[2][i].adId,
+                                adTitle: res.data[2][i].name,
+                                adPos: 2
+                            });
+                        }
+                    });
+                }
+                if (res.data[3]) {
+                                        require.async(['wiki-lemma:widget/promotion/topAd/topAd'], function(topAd) {
+                        topAd(res.data[3]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[3][0].adId,
+                            adTitle: res.data[3][0].name,
+                            adPos: 3
+                        });
+                    });
+                                    }
+                if (res.data[4]) {
+                                        require.async(['wiki-lemma:widget/promotion/rightAd/rightAd'], function(rightAd) {
+                        rightAd(res.data[4]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[4][0].adId,
+                            adTitle: res.data[4][0].name,
+                            adPos: 4
+                        });
+                    });
+                                    }
+                if (res.data[15]) {
+                    require.async(['wiki-lemma:widget/promotion/banner/banner'], function(banner) {
+                        banner(res.data[15]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[15][0].adId,
+                            adTitle: res.data[15][0].name,
+                            adPos: 15
+                        });
+                    });
+                }
+                if (res.data[16]) {
+                    require.async(['wiki-lemma:widget/promotion/declaration/declaration'], function(declaration) {
+                        declaration(res.data[16]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[16][0].adId,
+                            adTitle: res.data[16][0].name,
+                            adPos: 16
+                        });
+                    })
+                }
+            } else {
+                return;
+            }
+
+            setTimeout(function () {
+                var elemArr = {};
+                res.data[1] && res.data[1].length > 0 && (elemArr['lemma-vbaike-ad'] = $('.lemmaWgt-promotion-vbaike .promotion_viewport a:eq(0) img').get(0));
+                res.data[2] && res.data[2].length > 0 && (elemArr['lemma-slide-ad'] = $('.lemmaWgt-promotion-slide .promotion_viewport a:eq(0) img').get(0));
+                res.data[3] && res.data[3].length > 0 && (elemArr['lemma-navbar-ad'] = {
+                    node: $('.header [nslog-type="10002202"]').get(0),
+                    validations: {
+                        'noBackgroundImage': function() {
+                            return $('.header [nslog-type="10002202"]').css('background-image').indexOf(res.data[3][0].picUrl) < 0
+                        }
+                    }
+                });
+                res.data[4] && res.data[4].length > 0 && (elemArr['lemma-side-ad'] = {
+                    node: $('.right-ad img').get(0),
+                    validations: {
+                        'noBackgroundImage': function() {
+                            return $('.right-ad img').attr('src').indexOf(res.data[4][0].picUrl) < 0
+                        }
+                    }
+                });
+                res.data[15] && res.data[15].length > 0 && (elemArr['lemma-configModule-banner'] = $('.configModuleBanner').get(0));
+                res.data[16] && res.data[16].length > 0 && (elemArr['lemma-configModule-declaration'] = $('.lemmaWgt-declaration').get(0));
+
+                testElem.log(elemArr, 70000102);
+            }, 1000);
+        },
+        error: function () {
+            // log 词条页广告被拦截情况（此处 log 请求失败）
+            nslog(70000101, window.location.href, {
+                api: 'lemma-ad',
+                action: 'error'
+            });
+        }
+    });
+
+    // 设置分享内容
+    window.BKShare.setCommon({
+        bdText: "\u3010\u7f51\u7edc\u722c\u866b_\u767e\u5ea6\u767e\u79d1\u3011\u7f51\u7edc\u722c\u866b\uff08\u53c8\u88ab\u79f0\u4e3a\u7f51\u9875\u8718\u86db\uff0c\u7f51\u7edc\u673a\u5668\u4eba\uff0c\u5728FOAF\u793e\u533a\u4e2d\u95f4\uff0c\u66f4\u7ecf\u5e38\u7684\u79f0\u4e3a\u7f51\u9875\u8ffd\u9010\u8005\uff09\uff0c\u662f\u4e00\u79cd\u6309\u7167\u4e00\u5b9a\u7684\u89c4\u5219\uff0c\u81ea\u52a8\u5730\u6293\u53d6\u4e07\u7ef4\u7f51\u4fe1\u606f\u7684\u7a0b\u5e8f\u6216\u8005\u811a\u672c\u3002\u53e6\u5916\u4e00\u4e9b\u4e0d\u5e38\u4f7f\u7528\u7684\u540d\u5b57\u8fd8\u6709\u8682\u8681\u3001\u81ea\u52a8\u7d22\u5f15\u3001\u6a21\u62df\u7a0b\u5e8f\u6216\u8005\u8815\u866b\u3002.....\uff08\u5206\u4eab\u81ea@\u767e\u5ea6\u767e\u79d1\uff09",
+        bdDesc: '',
+        bdUrl: 'http:\/\/baike.baidu.com\/item\/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB\/5162711',
+        bdPic: '',
+        onBeforeClick: function (){
+            $('.bdshare_dialog_box').hide();
+        }
+    });
+
+    // 底部投诉带入当前页面 url
+    var map = [1, 2, 6, 5];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://help.baidu.com/newadd?word=%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB' + '&&submit_link=' + encodeURIComponent(window.location.href) + '&prod_id=10&category=' + map[i]);
+    });
+
+    // 为超出预设内容的表格添加table-responsive控制
+    $('.main-content').find('table').each(function(index) {
+        var $that = $(this);
+        if ($that.width() > 790) {
+            $that.wrap('<div class="table-responsive"></div>');
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink');
+    }();
+!function(){      require('wiki-common:widget/component/recruitment/recruitment');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="https://gss0.baidu.com/70cFsjip0QIZ8tyhnq/hunter/baike.js?st=17905" defer></script><script type="text/javascript">
+  // DOM Ready时，统计用户可操作时间。
+  alog('speed.set', 'drt', +new Date);
+
+  void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+</html>

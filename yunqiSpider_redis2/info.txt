@@ -1,0 +1,3 @@
+实现了scrapy_redis的RedisCrawlSpider
+支持分布式，在不同目录下运行scrapy runspider xxx.py，在redis-cli中输入redis-key和起始url
+数据存储采取mongoDB集群，在不同的端口创建replicaset

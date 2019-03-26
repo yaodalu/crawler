@@ -25,6 +25,6 @@ print '按分数排序', sorted(d,key = (lambda x:x[1]))
 
 #2.匿名函数可以应用在闭包中
 def get_y(a,b):
-    return lambda x:ax+b
+    return lambda x:a*x+b
 y1 = get_y(1,1)
 y1(1)
